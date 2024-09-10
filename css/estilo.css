@@ -1,0 +1,763 @@
+/* Colores y Tipografía */
+:root {
+    --primary-color: #004B8D; /* Azul Oscuro */
+    --secondary-color: #F28C00; /* Naranja */
+    --accent-color: #F7B32B; /* Amarillo */
+    --background-color: #F5F5F5; /* Gris Claro */
+    --text-color: #333333; /* Gris Oscuro */
+    --btn-text-color: #FFFFFF; /* Blanco */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos Generales */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Barra de Navegación */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav_logo{
+    width: 180px;
+}
+
+.navbar__logo img {
+    width: 60px;
+    height: auto;
+}
+
+.navbar__menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__menu ul li a {
+    color: var(--btn-text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar__menu ul li a:hover {
+    color: var(--accent-color);
+}
+
+.btn-donate-navbar {
+    background-color: var(--secondary-color);
+    color: var(--btn-text-color);
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-donate-navbar:hover {
+    color: var(--btn-text-color);
+    background-color: var(--accent-color);
+}
+
+/* Sección Hero */
+.hero-section {
+    background-color: var(--primary-color);
+    color: var(--btn-text-color);
+    text-align: center;
+    padding: 120px 20px;
+    background-image: url('img/hero-bg.jpg'); /* Fondo con imagen */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.btn-donate {
+    background-color: var(--secondary-color);
+    color: var(--btn-text-color);
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-donate:hover {
+    background-color: var(--accent-color);
+}
+
+/* Nueva Sección: ¿Por Qué Donar? */
+.porque-donar-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.porque-donar-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.donar-reasons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.reason {
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.reason img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.reason h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.reason p {
+    font-size: 1.1em;
+}
+
+/* Nueva Sección: Impacto de Tu Donación */
+.impacto-donacion-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.impact-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.impact-item {
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.impact-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.impact-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.impact-item p {
+    font-size: 1.1em;
+}
+
+/* Nueva Sección: Únete Como Voluntario */
+.volunteer-call-to-action {
+    background-color: var(--secondary-color);
+    color: var(--btn-text-color);
+    padding: 30px 20px;
+    text-align: center;
+    margin: 60px 0;
+}
+
+.volunteer-call-to-action h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.volunteer-call-to-action p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn-volunteer {
+    background-color: var(--accent-color);
+    color: var(--btn-text-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.btn-volunteer:hover {
+    background-color: var(--hover-color);
+}
+
+
+.testimonials-section {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.testimonials-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    padding: 20px;
+    text-align: center;
+    color: var(--btn-text-color);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer__social-media a img {
+    width: 35px;
+    height: auto;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.footer__social-media a img:hover {
+    transform: scale(1.1);
+}
+
+
+/*/////////////////////////////////////////*/
+
+/* Estilos para la sección de voluntarios */
+.volunteer-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.volunteer-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.volunteer-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.volunteer-benefits {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.benefit {
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.benefit img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.benefit h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.benefit p {
+    font-size: 1.1em;
+}
+
+.btn-volunteer {
+    background-color: var(--secondary-color);
+    color: var(--btn-text-color);
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volunteer:hover {
+    background-color: var(--accent-color);
+}
+
+/* Estilos para la sección del formulario de voluntariado */
+.volunteer-form-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.volunteer-form-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.volunteer-form-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.volunteer-form-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.whatsapp-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp-icon img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.whatsapp-info h3 {
+    margin-bottom: 10px;
+}
+
+.whatsapp-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.volunteer-form {
+    width: 48%;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--btn-text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Sección de formulario de voluntariado */
+.volunteer-form-section {
+    background-color: #f1f1f1;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.volunteer-form-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.volunteer-form-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+/* Formulario */
+.volunteer-form {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 95%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    color: #333;
+}
+
+.btn-submit {
+    background-color: #25D366;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background-color: #20b259;
+}
+
+/* Card de WhatsApp */
+.whatsapp-card {
+    background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-info{
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    
+}
+
+.whatsapp-icon img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.whatsapp-info h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.whatsapp-info p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.btn-whatsapp {
+    background-color: white;
+    color: #25D366;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #e0e0e0;
+}
+
+/* Sección de requisitos */
+.requisitos-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.requisitos-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.requisitos-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.requisitos-section ul li {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.requisitos-section ul li::before {
+    content: '\2714';
+    font-size: 1.5em;
+    color: #25D366;
+    margin-right: 15px;
+}
+
+
+/* Estilos de pagina Donaciones */
+.donar-intro-section {
+    background-color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.donar-intro-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.donar-intro-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.btn-donar-cta {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-donar-cta:hover {
+    background-color: var(--accent-color);
+}
+
+/* Sección de Donaciones */
+.donaciones-section {
+    background-color: #f8f8f8;
+    padding: 80px 20px;
+}
+
+.donaciones-columns {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.donaciones-form-column,
+.transferencias-column {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 100%;
+    max-width: 45%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.donaciones-form-column h2,
+.transferencias-column h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.donaciones-form-column p,
+.transferencias-column p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.bank-details {
+    margin-bottom: 30px;
+}
+
+.bank-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.bank-details p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Estilo de Botones */
+.donate-paypal form {
+    margin-bottom: 20px;
+}
+
+.donate-donorbox {
+    margin-bottom: 20px;
+}
+
+
+/* Sección de Llamadas a la Acción */
+.cta-donar-section {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cta-donar-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-donar-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.btn-voluntario-cta {
+    background-color: #ffffff;
+    color: var(--accent-color);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voluntario-cta:hover {
+    background-color: #e0e0e0;
+}
+
+/* Sección de Impacto */
+.impacto-section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.impacto-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.impacto-section p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.impacto-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.impacto-section ul li {
+    font-size: 1.5em;
+    color: #2e7d32;
+    font-weight: bold;
+}
+

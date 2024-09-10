@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Sofía Lorenzo</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" href="../img/logo.png">
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="volunteer.html">Voluntarios</a></li>
+                <li><a href="#donaciones" class="btn-donate-navbar">Dona Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Introducción -->
+    <section id="donar-intro" class="donar-intro-section">
+        <div class="container">
+            <h1>Únete a Nuestra Causa</h1>
+            <p>En la Fundación Sofía Lorenzo, trabajamos día a día para mejorar la vida de quienes más lo necesitan. Con tu apoyo, podemos continuar nuestros esfuerzos y ampliar nuestro alcance. Descubre cómo puedes hacer la diferencia.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Donaciones -->
+    <section id="donaciones" class="donaciones-section">
+        <div class="container">
+            <div class="donaciones-columns">
+                <!-- Columna de Donaciones (PayPal/DonorBox) -->
+                <div class="donaciones-form-column">
+                    <h2>Haz tu Donación</h2>
+                    <p>Puedes contribuir con una donación única o recurrente utilizando cualquiera de los siguientes
+                        métodos:</p>
+
+                    <!-- Botón de PayPal -->
+                    <div class="donate-paypal">
+                        <form action="https://www.paypal.com/donate" method="post" target="_top">
+                            <input type="hidden" name="business" value="TU_CORREO@DOMINIO.COM" />
+                            <input type="hidden" name="no_recurring" value="0" />
+                            <input type="hidden" name="item_name" value="Donación a Fundación Sofía Lorenzo" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                                border="0" name="submit" alt="Donate with PayPal button" />
+                            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1"
+                                height="1" />
+                        </form>
+                    </div>
+
+                    <!-- Botón de DonorBox -->
+                    <div class="donate-donorbox">
+                        <!-- Insertar código de integración de DonorBox -->
+                        <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+                        <iframe src="https://donorbox.org/embed/TU_ID_DE_CAMPAÑA" height="685px" width="100%"
+                            style="max-width: 500px; min-width: 310px; max-height:none!important" seamless="seamless"
+                            name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
+                    </div>
+                </div>
+
+                <!-- Columna de Transferencias Bancarias -->
+                <div class="transferencias-column">
+                    <h2>Transferencias Bancarias</h2>
+                    <p>También puedes realizar tu donación mediante una transferencia bancaria directa a las siguientes
+                        cuentas:</p>
+
+                    <div class="bank-details">
+                        <h3>Banco Popular</h3>
+                        <p>Número de cuenta: <strong>1234-5678-9012</strong></p>
+                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <p>Swift: <strong>BPDODOSXXXX</strong></p>
+                    </div>
+
+                    <div class="bank-details">
+                        <h3>Banco BHD León</h3>
+                        <p>Número de cuenta: <strong>2345-6789-0123</strong></p>
+                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <p>Swift: <strong>BHDBDOSXXXX</strong></p>
+                    </div>
+
+                    <div class="bank-details">
+                        <h3>Banco de Reservas</h3>
+                        <p>Número de cuenta: <strong>3456-7890-1234</strong></p>
+                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <p>Swift: <strong>BRCDOSXXXX</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Llamadas a la Acción -->
+    <section id="cta-donar" class="cta-donar-section">
+        <div class="container">
+            <h2>Tu apoyo marca la diferencia</h2>
+            <p>Con tu donación, podemos continuar desarrollando proyectos que impacten de manera positiva a miles de
+                personas en nuestra comunidad. ¡Gracias por tu generosidad!</p>
+            <a href="#form-voluntario" class="btn-voluntario-cta">Hazte Voluntario</a>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos y Resultados -->
+    <section id="impacto" class="impacto-section">
+        <div class="container">
+            <h2>Conoce Nuestro Impacto</h2>
+            <p>Gracias a la generosidad de personas como tú, hemos podido lograr grandes cambios en nuestra comunidad. Aquí tienes algunos de nuestros logros recientes:</p>
+            <ul>
+                <li><strong>500+</strong> Niños y niñas educados</li>
+                <li><strong>200+</strong> Familias apoyadas con alimentos y suministros</li>
+                <li><strong>100+</strong> Voluntarios que se han unido a nuestra causa</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__social-media">
+            <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <!-- Añade más enlaces a redes sociales si es necesario -->
+        </div>
+        <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

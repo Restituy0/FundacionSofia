@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Fundación Sofía Lorenzo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" href="../img/logo.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Sección de Introducción */
+        .intro-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .intro-section h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            margin: 1rem 0 0;
+        }
+
+        /* Sección de Proyectos */
+        .proyectos-section {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .proyectos-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .proyecto-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .proyecto-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .proyecto-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .proyecto-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .proyecto-info h2 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            color: #333;
+        }
+
+        .proyecto-info p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-donate {
+            background-color: #0066cc;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-donate:hover {
+            background-color: #004da3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="volunteer.html">Voluntarios</a></li>
+                <li><a href="donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Introducción -->
+    <section id="introduccion-proyectos" class="intro-section">
+        <div class="container">
+            <h1>Nuestros Proyectos</h1>
+            <p>Conoce los proyectos que hemos realizado y los que están por venir. Tu apoyo es fundamental para hacer realidad estas iniciativas.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="projects-container" class="proyectos-section">
+        <ul class="proyectos-list">
+            <!-- Ejemplo de un proyecto -->
+            <!-- 
+            <li class="proyecto-card">
+                <img src="../img/p1.jpg" alt="Proyecto 1">
+                <div class="proyecto-info">
+                    <h2>Proyecto Educativo en La Vega</h2>
+                    <p>Brindamos acceso a educación de calidad a 200 niños en una comunidad rural.</p>
+                    <a href="#donaciones" class="btn-donate">Dona Ahora</a>
+                </div>
+            </li>
+
+            <li class="proyecto-card">
+                <img src="../img/p2.jpg" alt="Proyecto 2">
+                <div class="proyecto-info">
+                    <h2>Centro de Salud en Santiago</h2>
+                    <p>Inauguramos un nuevo centro de salud que ofrece servicios médicos esenciales a más de 500 familias.</p>
+                    <a href="#donaciones" class="btn-donate">Dona Ahora</a>
+                </div>
+            </li>
+            -->
+        </ul>
+    </section>
+
+    <h2 id="no-projects-message" style="display: none; text-align: center;">NO HAY NINGÚN PROYECTO DISPONIBLE TODAVÍA</h2>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__social-media">
+            <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <!-- Añade más enlaces a redes sociales si es necesario -->
+        </div>
+        <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/projects.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntarios - Fundación Sofía Lorenzo</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="icon" href="../img/logo.png">
+</head>
+
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="#voluntarios">Voluntarios</a></li>
+                <li><a href="donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Voluntarios -->
+    <section id="voluntarios" class="volunteer-section">
+        <div class="container">
+            <h1>Únete Como Voluntario</h1>
+            <p>Conviértete en parte de nuestra misión para cambiar el mundo.</p>
+            <div class="volunteer-benefits">
+                <div class="benefit">
+                    <img src="../img/ayuda-icon.png" alt="Icono de Ayuda">
+                    <h3>Ayuda a tu Comunidad</h3>
+                    <p>Haz una diferencia significativa en las vidas de aquellos que más lo necesitan.</p>
+                </div>
+                <div class="benefit">
+                    <img src="../img/red-icon.png" alt="Icono de Red">
+                    <h3>Conecta con Otros</h3>
+                    <p>Conoce a personas con ideas afines y forma parte de una red solidaria.</p>
+                </div>
+                <div class="benefit">
+                    <img src="../img/interaccion-icon.png" alt="Icono de Habilidades">
+                    <h3>Desarrolla Nuevas Habilidades</h3>
+                    <p>Aprende y mejora tus habilidades personales y profesionales a través del voluntariado.</p>
+                </div>
+            </div>
+            <a href="#form-voluntario" class="btn-volunteer">Hazte Voluntario</a>
+        </div>
+    </section>
+
+    <section id="form-voluntario" class="volunteer-form-section">
+        <h2>Únete como Voluntario</h2>
+        <p>Completa el siguiente formulario para ser parte de nuestra misión.</p>
+    
+        <!-- Formulario -->
+        <form action="submit_volunteer_form.php" method="POST" class="volunteer-form">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="habilidades">Habilidades o Intereses:</label>
+                <textarea id="habilidades" name="habilidades" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    
+        <!-- Card de WhatsApp -->
+        <div class="whatsapp-card">
+            <div class="whatsapp-icon">
+                <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+            </div>
+            <div class="whatsapp-info">
+                <h3>Contáctanos en WhatsApp</h3>
+                <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+                <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo." class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Requisitos -->
+    <section id="requisitos-voluntario" class="requisitos-section">
+        <h2>Requisitos para ser Voluntario</h2>
+        <ul>
+            <li>Ser mayor de 18 años.</li>
+            <li>Compromiso de al menos 4 horas semanales.</li>
+            <li>Pasión por ayudar a la comunidad.</li>
+            <li>Disponibilidad para asistir a eventos y reuniones.</li>
+            <li>Residir en la República Dominicana.</li>
+        </ul>
+    </section>    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__social-media">
+            <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
