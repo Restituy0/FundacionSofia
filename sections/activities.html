@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades | Fundación Sofía Lorenzo</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" href="../img/logo.png">
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <style>
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .filter-container {
+            margin: 20px 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .video {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        iframe, blockquote {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="navbar-logo">
+            <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
+        </div>
+        <nav class="navbar__menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Actividades</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="#voluntarios">Voluntarios</a></li>
+                <li><a href="#">Quienes Somos</a></li>
+                <li><a href="donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Filtros -->
+    <main class="container">
+        <h1>Actividades de nuestra fundación</h1>
+        <p>Aquí puedes ver algunos de los proyectos y actividades en los que hemos trabajado.</p>
+        <div class="filter-container">
+            <label for="category-filter">Filtrar por proyecto:</label>
+            <select id="category-filter" onchange="filterActivities()">
+                <option value="all">Todos</option>
+                <option value="educacion">Educación</option>
+                <option value="salud">Salud</option>
+                <option value="medioambiente">Medio Ambiente</option>
+            </select>
+        </div>
+        
+        <div class="gallery" id="activity-gallery">
+            <!-- Ejemplo de actividad -->
+            <div class="video" data-category="educacion">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DFxcbg4upbM/" data-instgrm-version="14"></blockquote>
+                <p>Proyecto de educación en comunidades rurales.</p>
+                <a href="donate.html" class="btn-donate">Dona a este proyecto</a>
+            </div>
+            
+            <div class="video" data-category="salud">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                <p>Brindando asistencia médica a quienes más lo necesitan.</p>
+                <a href="donate.html" class="btn-donate">Dona a este proyecto</a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer__social-media">
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
+        </div>
+        <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="../js/projects.js"></script>
+    <script>
+        function filterActivities() {
+            let selectedCategory = document.getElementById("category-filter").value;
+            let videos = document.querySelectorAll(".video");
+            
+            videos.forEach(video => {
+                if (selectedCategory === "all" || video.dataset.category === selectedCategory) {
+                    video.style.display = "block";
+                } else {
+                    video.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

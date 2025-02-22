@@ -7,28 +7,235 @@
     <title>Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="icon" href="img/logo.png">
+    <style>
+        /*** INICIO ***/
+        .start-section {
+            background-color: var(--primary-color);
+            color: var(--btn-text-color);
+            text-align: center;
+            padding: 100px 20px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .start-navbar {
+            background-color: var(--primary-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 3.5em;
+        }
+
+        .start-logo {
+            margin: 0;
+            padding: 0;
+        }
+
+        .start-logo img {
+            width: 90px;
+            height: auto;
+        }
+
+        .start-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .start-content p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .btn-donate {
+            background-color: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-donate:hover {
+            background-color: var(--accent-color);
+        }
+
+        /*Sección: ¿Por Qué Donar? */
+        .porque-donar-section {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .porque-donar-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .donar-reasons {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .reason {
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .reason img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .reason h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .reason p {
+            font-size: 1.1em;
+        }
+
+        /* Nueva Sección: Impacto de Tu Donación */
+        .impacto-donacion-section {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .impact-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .impact-item {
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .impact-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .impact-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .impact-item p {
+            font-size: 1.1em;
+        }
+
+        /* Nueva Sección: Únete Como Voluntario */
+        .volunteer-call-to-action {
+            background-color: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 30px 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .volunteer-call-to-action h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn-volunteer {
+            background-color: var(--accent-color);
+            color: var(--btn-text-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-volunteer:hover {
+            background-color: var(--hover-color);
+        }
+
+
+        .testimonials-section {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Barra de Navegación -->
-    <header class="navbar">
-        <div class="navbar__logo">
-            <img src="img/logo.png" alt="Logo Fundación Sofía Lorenzo">
-        </div>
+    <header class="start-navbar">
         <nav class="navbar__menu">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="sections/activities.html">Actividades</a></li>
                 <li><a href="sections/proyectos.html">Proyectos</a></li>
                 <li><a href="sections/volunteer.html">Voluntarios</a></li>
+                <li><a href="#">Quienes Somos</a></li>
                 <li><a href="sections/donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Sección de Inicio -->
-    <section id="inicio" class="hero-section">
-        <div class="hero-content">
+    <section id="inicio" class="start-section">
+        <div class="start-content">
+            <div class="start-logo">
+                <img src="img/logo.png" alt="Logo Fundación Sofía Lorenzo">
+            </div>
             <h1>Fundación Sofía Lorenzo</h1>
             <p>Trabajando por un futuro mejor</p>
             <a href="#donaciones" class="btn-donate">Dona Ahora</a>
@@ -43,17 +250,20 @@
                 <div class="reason">
                     <img src="img/icon-education.png" alt="Icono de Educación">
                     <h3>Educación para Todos</h3>
-                    <p>Tu donación ayuda a proporcionar acceso a educación de calidad para niños y jóvenes de comunidades vulnerables.</p>
+                    <p>Tu donación ayuda a proporcionar acceso a educación de calidad para niños y jóvenes de
+                        comunidades vulnerables.</p>
                 </div>
                 <div class="reason">
                     <img src="img/icon-health.png" alt="Icono de Salud">
                     <h3>Salud y Bienestar</h3>
-                    <p>Contribuye a nuestros programas de salud que aseguran atención médica y nutrición para quienes más lo necesitan.</p>
+                    <p>Contribuye a nuestros programas de salud que aseguran atención médica y nutrición para quienes
+                        más lo necesitan.</p>
                 </div>
                 <div class="reason">
                     <img src="img/icon-community.png" alt="Icono de Comunidad">
                     <h3>Desarrollo Comunitario</h3>
-                    <p>Apoya proyectos que promueven el desarrollo sostenible y la auto-suficiencia en comunidades desfavorecidas.</p>
+                    <p>Apoya proyectos que promueven el desarrollo sostenible y la auto-suficiencia en comunidades
+                        desfavorecidas.</p>
                 </div>
             </div>
         </div>
@@ -73,12 +283,14 @@
                 <div class="impact-item">
                     <img src="img/p2.jpg" alt="Proyecto 2">
                     <h3>Centro de Salud en Santiago</h3>
-                    <p>Se ha inaugurado un nuevo centro de salud que ofrece servicios médicos esenciales a más de 500 familias.</p>
+                    <p>Se ha inaugurado un nuevo centro de salud que ofrece servicios médicos esenciales a más de 500
+                        familias.</p>
                 </div>
                 <div class="impact-item">
                     <img src="img/p3.jpg" alt="Proyecto 3">
                     <h3>Empoderamiento de Mujeres</h3>
-                    <p>Tu contribución ha permitido el lanzamiento de talleres de formación profesional para mujeres en Santo Domingo.</p>
+                    <p>Tu contribución ha permitido el lanzamiento de talleres de formación profesional para mujeres en
+                        Santo Domingo.</p>
                 </div>
             </div>
         </div>
@@ -101,15 +313,18 @@
 
             <div class="testimonials">
                 <div class="testimonial">
-                    <p>"Gracias a la Fundación Sofía Lorenzo, ahora tengo acceso a educación de calidad y nuevas oportunidades para un mejor futuro."</p>
+                    <p>"Gracias a la Fundación Sofía Lorenzo, ahora tengo acceso a educación de calidad y nuevas
+                        oportunidades para un mejor futuro."</p>
                     <span>- María García</span>
                 </div>
                 <div class="testimonial">
-                    <p>"El apoyo que recibí para iniciar mi pequeño negocio ha sido invaluable. Ahora puedo mantener a mi familia gracias a su ayuda."</p>
+                    <p>"El apoyo que recibí para iniciar mi pequeño negocio ha sido invaluable. Ahora puedo mantener a
+                        mi familia gracias a su ayuda."</p>
                     <span>- Juan Pérez</span>
                 </div>
                 <div class="testimonial">
-                    <p>"Ser voluntario en esta fundación me ha permitido dar algo de vuelta a mi comunidad. Es una experiencia que recomiendo a todos."</p>
+                    <p>"Ser voluntario en esta fundación me ha permitido dar algo de vuelta a mi comunidad. Es una
+                        experiencia que recomiendo a todos."</p>
                     <span>- Carla Rodríguez</span>
                 </div>
             </div>
@@ -119,12 +334,14 @@
     <!-- Footer -->
     <footer>
         <div class="footer__social-media">
-            <a href="#"><img src="img/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
             <!-- Añade más enlaces a redes sociales si es necesario -->
         </div>
         <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="js/warning.js"></script>
 </body>
 
 </html>

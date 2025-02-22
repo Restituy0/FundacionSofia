@@ -4,23 +4,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación Sofía Lorenzo</title>
+    <title>Donaciones | Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
+    <style>
+        /*** DONACIONES ***/
+
+        .donar-intro-section {
+            background-color: #ffffff;
+            padding: 100px 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .donar-intro-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .donar-intro-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .btn-donar-cta {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-donar-cta:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Sección de Donaciones */
+        .donaciones-section {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+        }
+
+        .donaciones-columns {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+        }
+
+        .donaciones-form-column,
+        .transferencias-column {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            min-width: 700px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .donaciones-form-column h2,
+        .transferencias-column h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .donaciones-form-column p,
+        .transferencias-column p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .bank-details {
+            margin-bottom: 30px;
+        }
+
+        .bank-details h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .bank-details p {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        /* Estilo de Botones */
+        .donate-paypal form {
+            margin-bottom: 20px;
+        }
+
+        .donate-donorbox {
+            margin-bottom: 20px;
+        }
+
+
+        /* Sección de Llamadas a la Acción */
+        .cta-donar-section {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-donar-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-donar-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .btn-voluntario-cta {
+            background-color: #ffffff;
+            color: var(--accent-color);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-voluntario-cta:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Sección de Impacto */
+        .impacto-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .impacto-section h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .impacto-section p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .impacto-section ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .impacto-section ul li {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Barra de Navegación -->
     <header class="navbar">
-        <div class="navbar__logo">
+        <div class="navbar-logo">
             <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
         </div>
         <nav class="navbar__menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="activities.html">Actividades</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="volunteer.html">Voluntarios</a></li>
+                <li><a href="#">Quienes Somos</a></li>
                 <li><a href="#donaciones" class="btn-donate-navbar">Dona Ahora</a></li>
             </ul>
         </nav>
@@ -30,7 +193,9 @@
     <section id="donar-intro" class="donar-intro-section">
         <div class="container">
             <h1>Únete a Nuestra Causa</h1>
-            <p>En la Fundación Sofía Lorenzo, trabajamos día a día para mejorar la vida de quienes más lo necesitan. Con tu apoyo, podemos continuar nuestros esfuerzos y ampliar nuestro alcance. Descubre cómo puedes hacer la diferencia.</p>
+            <p>En la Fundación Sofía Lorenzo, trabajamos día a día para mejorar la vida de quienes más lo necesitan. Con
+                tu apoyo, podemos continuar nuestros esfuerzos y ampliar nuestro alcance. Descubre cómo puedes hacer la
+                diferencia.</p>
         </div>
     </section>
 
@@ -41,7 +206,7 @@
                 <!-- Columna de Donaciones (PayPal/DonorBox) -->
                 <div class="donaciones-form-column">
                     <h2>Haz tu Donación</h2>
-                    <p>Puedes contribuir con una donación única o recurrente utilizando cualquiera de los siguientes
+                    <p>Contribuye con una donación única o recurrente utilizando los siguientes
                         métodos:</p>
 
                     <!-- Botón de PayPal -->
@@ -71,7 +236,7 @@
                 <!-- Columna de Transferencias Bancarias -->
                 <div class="transferencias-column">
                     <h2>Transferencias Bancarias</h2>
-                    <p>También puedes realizar tu donación mediante una transferencia bancaria directa a las siguientes
+                    <p>Realizar tu donación mediante una transferencia bancaria a las siguientes
                         cuentas:</p>
 
                     <div class="bank-details">
@@ -113,7 +278,8 @@
     <section id="impacto" class="impacto-section">
         <div class="container">
             <h2>Conoce Nuestro Impacto</h2>
-            <p>Gracias a la generosidad de personas como tú, hemos podido lograr grandes cambios en nuestra comunidad. Aquí tienes algunos de nuestros logros recientes:</p>
+            <p>Gracias a la generosidad de personas como tú, hemos podido lograr grandes cambios en nuestra comunidad.
+                Aquí tienes algunos de nuestros logros recientes:</p>
             <ul>
                 <li><strong>500+</strong> Niños y niñas educados</li>
                 <li><strong>200+</strong> Familias apoyadas con alimentos y suministros</li>
@@ -122,12 +288,11 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer>
         <div class="footer__social-media">
-            <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
             <!-- Añade más enlaces a redes sociales si es necesario -->
         </div>
         <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>

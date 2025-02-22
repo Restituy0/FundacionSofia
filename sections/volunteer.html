@@ -1,25 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voluntarios - Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
+    <style>
+        /*////////////////// PAGINA VOLUNTARIOS ///////////////////////*/
+
+        /* Estilos para la sección de voluntarios */
+        .volunteer-section {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .volunteer-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .volunteer-benefits {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .benefit {
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .benefit img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .benefit h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .benefit p {
+            font-size: 1.1em;
+        }
+
+        .btn-volunteer {
+            background-color: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-volunteer:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Estilos para la sección del formulario de voluntariado */
+        .volunteer-form-section {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .volunteer-form-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-form-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .volunteer-form-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .whatsapp-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            text-align: left;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .whatsapp-icon img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .whatsapp-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-info p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .volunteer-form {
+            width: 48%;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: var(--btn-text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Sección de formulario de voluntariado */
+        .volunteer-form-section {
+            background-color: #f1f1f1;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .volunteer-form-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .volunteer-form-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        /* Formulario */
+        .volunteer-form {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 95%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .btn-submit {
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: #20b259;
+        }
+
+        /* Card de WhatsApp */
+        .whatsapp-card {
+            background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+            border-radius: 15px;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-info {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+        }
+
+        .whatsapp-icon img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .whatsapp-info h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .whatsapp-info p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .btn-whatsapp {
+            background-color: white;
+            color: #25D366;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Sección de requisitos */
+        .requisitos-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .requisitos-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .requisitos-section ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .requisitos-section ul li {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            position: relative;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .requisitos-section ul li::before {
+            content: '\2714';
+            font-size: 1.5em;
+            color: #25D366;
+            margin-right: 15px;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Barra de Navegación -->
     <header class="navbar">
-        <div class="navbar__logo">
+        <div class="navbar-logo">
             <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
         </div>
         <nav class="navbar__menu">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#evidencias">Evidencias</a></li>
+                <li><a href="activities.html">Actividades</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="#voluntarios">Voluntarios</a></li>
+                <li><a href="#">Quienes Somos</a></li>
                 <li><a href="donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
             </ul>
         </nav>
@@ -54,7 +375,7 @@
     <section id="form-voluntario" class="volunteer-form-section">
         <h2>Únete como Voluntario</h2>
         <p>Completa el siguiente formulario para ser parte de nuestra misión.</p>
-    
+
         <!-- Formulario -->
         <form action="submit_volunteer_form.php" method="POST" class="volunteer-form">
             <div class="form-group">
@@ -75,7 +396,7 @@
             </div>
             <button type="submit" class="btn-submit">Enviar</button>
         </form>
-    
+
         <!-- Card de WhatsApp -->
         <div class="whatsapp-card">
             <div class="whatsapp-icon">
@@ -84,11 +405,12 @@
             <div class="whatsapp-info">
                 <h3>Contáctanos en WhatsApp</h3>
                 <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-                <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo." class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
+                <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
+                    class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Sección de Requisitos -->
     <section id="requisitos-voluntario" class="requisitos-section">
         <h2>Requisitos para ser Voluntario</h2>
@@ -99,15 +421,16 @@
             <li>Disponibilidad para asistir a eventos y reuniones.</li>
             <li>Residir en la República Dominicana.</li>
         </ul>
-    </section>    
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer__social-media">
-            <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
         </div>
         <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
     </footer>
 </body>
+
 </html>

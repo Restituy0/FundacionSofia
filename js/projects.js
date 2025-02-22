@@ -3,32 +3,46 @@ const sheetID = '182Mc52g86T-wurWKcDCTZ2ll-SWq25WUlBbuxVOQjjk';
 const apiKey = 'AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28';
 const sheetName = 'Proyectos';
 
-// Ajusta el rango para abarcar más filas, por ejemplo hasta la fila 1000
+// Ajustar el rango para abarcar más filas, por ejemplo hasta la fila 1000
 const range = `${sheetName}!A1:D1000`;
 
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-const url = `${proxyUrl}https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`;
+const proxyUrl = 'https://api.allorigins.win/get?url=';
+const url = `${proxyUrl}${encodeURIComponent(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)}`;
 
 // Hacer la solicitud
 fetch(url)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error en la respuesta de la API');
-    }
-    return response.json();
-  })
+  .then(response => response.json())
   .then(data => {
-    const projects = data.values;
-    if (!projects) {
+    console.log("Respuesta completa:", data); // Ver qué devuelve el proxy
+    const jsonData = JSON.parse(data.contents); // Convertir el contenido JSON
+    console.log("Datos extraídos:", jsonData);
+    
+    if (!jsonData.values) {
       throw new Error('No se encontraron datos en la hoja de cálculo');
     }
-
-    // Elimina filas vacías que podrían estar después del último proyecto
-    const filteredProjects = projects.filter(row => row.some(cell => cell.trim() !== ''));
-
-    renderProjects(filteredProjects);
+    
+    renderProjects(jsonData.values);
   })
   .catch(error => console.error('Error al obtener los datos:', error));
+// fetch(url)
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Error en la respuesta de la API');
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     const projects = data.values;
+//     if (!projects) {
+//       throw new Error('No se encontraron datos en la hoja de cálculo');
+//     }
+
+//     // Elimina filas vacías que podrían estar después del último proyecto
+//     const filteredProjects = projects.filter(row => row.some(cell => cell.trim() !== ''));
+
+//     renderProjects(filteredProjects);
+//   })
+//   .catch(error => console.error('Error al obtener los datos:', error));
 
 // Función para renderizar los proyectos
 function renderProjects(projects) {
