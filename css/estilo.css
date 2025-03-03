@@ -41,24 +41,65 @@ a {
     height: auto;
 }
 
-.navbar__menu ul {
-    list-style-type: none;
+/* Menú principal */
+.navbar__menu {
+    list-style: none;
     display: flex;
     gap: 25px;
     margin: 0;
     padding: 0;
 }
 
-.navbar__menu ul li a {
+.navbar__menu li {
+    position: relative;
+}
+
+.navbar__menu a {
     color: var(--btn-text-color);
     font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
     transition: color 0.3s ease;
 }
 
-.navbar__menu ul li a:hover {
+.navbar__menu a:hover {
     color: var(--accent-color);
 }
 
+/* Submenús */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Botón de donación */
 .btn-donate-navbar {
     background-color: var(--secondary-color);
     color: var(--btn-text-color);
@@ -72,6 +113,7 @@ a {
     color: var(--btn-text-color);
     background-color: var(--accent-color);
 }
+
 
 /* Estilos para el modal */
 .modal-advertencia {

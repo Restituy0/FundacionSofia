@@ -26,10 +26,14 @@
             background-color: var(--primary-color);
             padding: 15px 20px;
             display: flex;
-            justify-content: end;
+            justify-content: center;
             align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             min-height: 3.5em;
+        }
+
+        .navbar {
+            border-radius: 10px;
         }
 
         .start-logo {
@@ -217,18 +221,30 @@
 
 <body>
     <!-- Barra de Navegación -->
-    <header class="start-navbar">
-        <nav class="navbar__menu">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="sections/activities.html">Actividades</a></li>
-                <li><a href="sections/proyectos.html">Proyectos</a></li>
-                <li><a href="sections/volunteer.html">Voluntarios</a></li>
-                <li><a href="#">Quienes Somos</a></li>
-                <li><a href="sections/donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
-            </ul>
-        </nav>
-    </header>
+<header class="start-navbar">
+    <nav class="navbar">
+        <ul class="navbar__menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Iniciativas ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="sections/activities.html">Actividades</a></li>
+                    <li><a href="sections/proyectos.html">Proyectos</a></li>
+                </ul>
+            </li>
+            <li><a href="sections/volunteer.html">Voluntarios</a></li>
+            <li class="dropdown">
+                <a href="#">Nosotros ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="sections/aboutus.html">Quiénes Somos</a></li>
+                    <li><a href="sections/contact.html">Contáctanos</a></li>
+                </ul>
+            </li>
+            <li><a href="sections/donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <!-- Sección de Inicio -->
     <section id="inicio" class="start-section">

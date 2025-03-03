@@ -173,18 +173,31 @@
 
 <body>
     <!-- Barra de Navegación -->
-    <header class="navbar">
-        <div class="navbar-logo">
-            <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
-        </div>
-        <nav class="navbar__menu">
-            <ul>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="#inicio">
+                    <img src="../img/red-logo.png" alt="Logo Fundación Sofía Lorenzo" style="width: 170px;">
+                </a>
+            </div>
+            <ul class="navbar__menu">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="activities.html">Actividades</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
+                <li class="dropdown">
+                    <a href="#">Iniciativas ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="activities.html">Actividades</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                    </ul>
+                </li>
                 <li><a href="volunteer.html">Voluntarios</a></li>
-                <li><a href="#">Quienes Somos</a></li>
-                <li><a href="#donaciones" class="btn-donate-navbar">Dona Ahora</a></li>
+                <li class="dropdown">
+                    <a href="#">Nosotros ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aboutus.html">Quiénes Somos</a></li>
+                        <li><a href="contact.html">Contáctanos</a></li>
+                    </ul>
+                </li>
+                <li><a href="donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
             </ul>
         </nav>
     </header>
