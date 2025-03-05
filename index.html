@@ -70,6 +70,29 @@
             background-color: var(--accent-color);
         }
 
+        /* Boton Volver */
+        #btnVolverArriba {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        #btnVolverArriba:hover {
+            background-color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+
         /*Sección: ¿Por Qué Donar? */
         .porque-donar-section {
             background-color: #fff;
@@ -221,29 +244,29 @@
 
 <body>
     <!-- Barra de Navegación -->
-<header class="start-navbar">
-    <nav class="navbar">
-        <ul class="navbar__menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li class="dropdown">
-                <a href="#">Iniciativas ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="sections/activities.html">Actividades</a></li>
-                    <li><a href="sections/proyectos.html">Proyectos</a></li>
-                </ul>
-            </li>
-            <li><a href="sections/volunteer.html">Voluntarios</a></li>
-            <li class="dropdown">
-                <a href="#">Nosotros ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="sections/aboutus.html">Quiénes Somos</a></li>
-                    <li><a href="sections/contact.html">Contáctanos</a></li>
-                </ul>
-            </li>
-            <li><a href="sections/donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
-        </ul>
-    </nav>
-</header>
+    <header class="start-navbar">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Iniciativas ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sections/activities.html">Actividades</a></li>
+                        <li><a href="sections/proyectos.html">Proyectos</a></li>
+                    </ul>
+                </li>
+                <li><a href="sections/volunteer.html">Voluntarios</a></li>
+                <li class="dropdown">
+                    <a href="#">Nosotros ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sections/aboutus.html">Quiénes Somos</a></li>
+                        <li><a href="sections/contact.html">Contáctanos</a></li>
+                    </ul>
+                </li>
+                <li><a href="sections/donate.html" class="btn-donate-navbar">Dona Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
     <!-- Sección de Inicio -->
@@ -347,10 +370,13 @@
         </div>
     </section>
 
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
+
     <!-- Footer -->
     <footer>
         <div class="footer__social-media">
-            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png"
+                    alt="Instagram"></a>
             <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
             <!-- Añade más enlaces a redes sociales si es necesario -->
         </div>
@@ -358,6 +384,24 @@
     </footer>
 
     <script src="js/warning.js"></script>
+    <script>
+        // Mostrar botón cuando el usuario hace scroll hacia abajo
+        window.onscroll = function () { mostrarBoton() };
+
+        function mostrarBoton() {
+            let boton = document.getElementById("btnVolverArriba");
+            if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+                boton.style.display = "block";
+            } else {
+                boton.style.display = "none";
+            }
+        }
+
+        // Función para volver arriba suavemente
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>
