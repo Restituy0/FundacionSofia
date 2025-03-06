@@ -19,6 +19,16 @@
 
         h1 {
             color: #333;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        h1::after {
+            content: '';
+            width: 15rem;
+            height: 5px;
+            background: var(--highlight-color);
+            display: block;
+            margin: 10px auto;
         }
 
         .filter-container {
@@ -34,11 +44,6 @@
 
         #category-filter:hover {
             transform: scale(1.1, 1.1);
-        }
-
-        #category-filter option {
-            background-color: transparent;
-            border-radius: 10px;
         }
 
         #video-gallery {

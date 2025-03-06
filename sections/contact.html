@@ -20,7 +20,15 @@
             font-size: 2rem;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .contact-header::after {
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: var(--highlight-color);
+            display: block;
+            margin: 10px auto;
         }
         .contact-info {
             display: flex;
@@ -76,6 +84,57 @@
         }
         .contact-form button:hover {
             background-color: var(--accent-color);
+        }
+
+        /* Card de WhatsApp */
+        .whatsapp-card {
+            margin: 40px auto;
+            background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+            border-radius: 15px;
+            color: white;
+            padding: 20px;
+            max-width: 50rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-info {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+        }
+
+        .whatsapp-icon img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .whatsapp-info h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .whatsapp-info p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .btn-whatsapp {
+            background-color: white;
+            color: #25D366;
+            text-align: center;
+            padding: 10px ;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
@@ -137,7 +196,7 @@
             </iframe>
         </div>
         <div class="contact-form">
-            <h3>Déjanos un mensaje</h3>
+            <h3 style="text-align: center;">Dejanos un mensaje</h3>
             <form action="#" method="post">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name" required>
@@ -152,6 +211,20 @@
             </form>
         </div>
     </div>
+
+        <!-- Card de WhatsApp -->
+    <div class="whatsapp-card">
+        <div class="whatsapp-icon">
+            <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+        </div>
+        <div class="whatsapp-info">
+            <h3>Contáctanos en WhatsApp</h3>
+            <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+            <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
+                class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
+        </div>
+    </div>
+
 
     <footer>
         <div class="footer__social-media">

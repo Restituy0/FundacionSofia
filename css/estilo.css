@@ -3,6 +3,7 @@
     --primary-color: #004B8D; /* Azul Oscuro */
     --secondary-color: #F28C00; /* Naranja */
     --accent-color: #F7B32B; /* Amarillo */
+    --highlight-color: #D72638; /* Rojo para resaltados */
     --background-color: #F5F5F5; /* Gris Claro */
     --text-color: #333333; /* Gris Oscuro */
     --btn-text-color: #FFFFFF; /* Blanco */
@@ -130,7 +131,7 @@ a {
 }
 
 .modal-content {
-    background-color: rgb(224, 25, 25);
+    background-color: var(--highlight-color);
     color: white;
     padding: 20px;
     border-radius: 8px;
