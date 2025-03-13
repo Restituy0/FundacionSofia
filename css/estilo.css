@@ -27,6 +27,13 @@ a {
     color: inherit;
 }
 
+hr {
+    background-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-width: 40%;
+    opacity: 20%;
+}
+
 /* Barra de Navegación */
 .navbar {
     background-color: var(--primary-color);

@@ -92,152 +92,307 @@
             opacity: 0.8;
         }
 
+        /* Sección: Historias de Impacto */
+        .historias-impacto-section {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+        }
 
-        /*Sección: ¿Por Qué Donar? */
+        .historias-impacto-section h2 {
+            font-size: 2.8em;
+            color: var(--primary-color);
+        }
+
+        .historias-impacto-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .historias-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .historia-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .historia-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .historia-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .historia-content h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .historia-content p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .btn-conocer {
+            background-color: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-conocer:hover {
+            background-color: var(--highlight-color);
+        }
+
+        @media (min-width: 768px) {
+            .historias-gallery {
+                flex-direction: row;
+                justify-content: center;
+
+            }
+
+            .historia-item {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+
+            }
+
+            .historia-image,
+            .historia-content {
+                flex: 1;
+
+            }
+
+            .historia-image {
+                margin-right: 20px;
+
+            }
+        }
+
+        /* Sección: ¿Por Qué Donar? */
         .porque-donar-section {
-            background-color: #fff;
+            background: #fff;
             padding: 60px 20px;
             text-align: center;
         }
 
         .porque-donar-section h2 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 40px;
+            color: var(--primary-color);
         }
 
         .donar-reasons {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
 
         .reason {
-            max-width: 300px;
-            margin: 20px;
-            text-align: center;
+            background: #f1f1f1;
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .reason:hover {
+            transform: translateY(-5px);
         }
 
         .reason img {
-            width: 80px;
-            margin-bottom: 20px;
+            width: 70px;
+            margin-bottom: 15px;
         }
 
         .reason h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
         .reason p {
             font-size: 1.1em;
+            color: var(--text-color);
         }
 
-        /* Nueva Sección: Impacto de Tu Donación */
+        /* Sección: Impacto de Tu Donación */
         .impacto-donacion-section {
-            background-color: #f9f9f9;
+            background: #f9f9f9;
             padding: 60px 20px;
             text-align: center;
         }
 
-        .impact-gallery {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .impact-item {
-            max-width: 300px;
-            margin: 20px;
-            text-align: center;
-        }
-
-        .impact-item img {
-            width: 100%;
-            border-radius: 10px;
+        .impacto-donacion-section h2 {
+            font-size: 2.8em;
             margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
-        .impact-item h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .impact-item p {
-            font-size: 1.1em;
-        }
-
-        /* Nueva Sección: Únete Como Voluntario */
-        .volunteer-call-to-action {
-            background-color: var(--secondary-color);
-            color: var(--btn-text-color);
-            padding: 30px 20px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .volunteer-call-to-action h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .volunteer-call-to-action p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        .btn-volunteer {
-            background-color: var(--accent-color);
-            color: var(--btn-text-color);
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
-        }
-
-        .btn-volunteer:hover {
-            background-color: var(--highlight-color);
-        }
-
-
-        .testimonials-section {
-            background-color: #f4f4f4;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .testimonials-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .testimonials-section p {
+        .impacto-donacion-section p {
             font-size: 1.2em;
             margin-bottom: 40px;
         }
 
-        .testimonials {
+        .impact-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .impact-item {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .impact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(215, 38, 56, 0.7); /* Rojo semitransparente para resaltar */
+            color: #fff;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-        }
-
-        .testimonial {
-            background-color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+        }
+
+        .impact-item:hover .overlay {
+            opacity: 1;
+
+        }
+
+        .overlay h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--btn-text-color);
+
+        }
+
+        .overlay p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
+
+        }
+
+        .btn-detalles {
+            background-color: var(--accent-color);
+            color: var(--btn-text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+        }
+
+        .btn-detalles:hover {
+            background-color: var(--highlight-color);
+
+        }
+
+
+        /* Sección: Únete Como Voluntario */
+        .volunteer-call-to-action {
+            background: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 40px 20px;
+            text-align: center;
+
+        }
+
+        .volunteer-call-to-action h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+
+        }
+
+        .volunteer-call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+
+        }
+
+        .btn-volunteer {
+            background: var(--accent-color);
+            color: var(--btn-text-color);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+
+        }
+
+        .btn-volunteer:hover {
+            background-color: var(--highlight-color);
+
+        }
+
+        /* Botón Volver Arriba */
+        #btnVolverArriba {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 20px;
+            cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
+            transition: background-color 0.3s, opacity 0.3s;
+
         }
 
-        .testimonial p {
-            font-style: italic;
-        }
+        #btnVolverArriba:hover {
+            background-color: var(--highlight-color);
+            opacity: 0.8;
 
-        .testimonial span {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -268,105 +423,122 @@
         </nav>
     </header>
 
-
-    <!-- Sección de Inicio -->
-    <section id="inicio" class="start-section">
-        <div class="start-content">
-            <div class="start-logo">
-                <img src="img/logo.png" alt="Logo Fundación Sofía Lorenzo">
+    <main>
+        <!-- Sección de Inicio -->
+        <section id="inicio" class="start-section">
+            <div class="start-content">
+                <div class="start-logo">
+                    <img src="img/logo.png" alt="Logo Fundación Sofía Lorenzo">
+                </div>
+                <h1>Fundación Sofía Lorenzo</h1>
+                <p>Trabajando por un futuro mejor</p>
+                <a href="#donaciones" class="btn-donate">Muestranos tu Apoyo</a>
             </div>
-            <h1>Fundación Sofía Lorenzo</h1>
-            <p>Trabajando por un futuro mejor</p>
-            <a href="#donaciones" class="btn-donate">Muestranos tu Apoyo</a>
-        </div>
-    </section>
+        </section>
 
-    <!-- Nueva Sección: ¿Por Qué Donar? -->
-    <section id="porque-donar" class="porque-donar-section">
-        <div class="container">
-            <h2>¿Por Qué Donar a Fundación Sofía Lorenzo?</h2>
-            <div class="donar-reasons">
-                <div class="reason">
-                    <img src="img/icon-education.png" alt="Icono de Educación">
-                    <h3>Educación para Todos</h3>
-                    <p>Tu donación ayuda a proporcionar acceso a educación de calidad para niños y jóvenes de
-                        comunidades vulnerables.</p>
-                </div>
-                <div class="reason">
-                    <img src="img/icon-health.png" alt="Icono de Salud">
-                    <h3>Salud y Bienestar</h3>
-                    <p>Contribuye a nuestros programas de salud que aseguran atención médica y nutrición para quienes
-                        más lo necesitan.</p>
-                </div>
-                <div class="reason">
-                    <img src="img/icon-community.png" alt="Icono de Comunidad">
-                    <h3>Desarrollo Comunitario</h3>
-                    <p>Apoya proyectos que promueven el desarrollo sostenible y la auto-suficiencia en comunidades
-                        desfavorecidas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nueva Sección: Impacto de Tu Donación -->
-    <section id="impacto-donacion" class="impacto-donacion-section">
-        <div class="container">
-            <h2>Impacto de Tu Donación</h2>
-            <p>Mira cómo tus contribuciones han hecho una diferencia en las vidas de muchas personas:</p>
-            <div class="impact-gallery">
-                <div class="impact-item">
-                    <img src="img/Charla.jpeg" alt="Charlas de Concientizacion">
-                    <h3>Charlas Educativas</h3>
-                    <p>Gracias a tu apoyo, podemos mejorar nuestra comunidad a traves de charlas, organizaciones y eventos.</p>
-                </div>
-                <div class="impact-item">
-                    <img src="img/Baile.jpeg" alt="Bailes">
-                    <h3>Actividades de Contribución</h3>
-                    <p>Se imparten actividades que contribuyen al desarrollo de los niños.</p>
-                </div>
-                <div class="impact-item">
-                    <img src="img/Muro.jpeg" alt="Proyecto 3">
-                    <h3>Desarrollo del pueblo</h3>
-                    <p>Tu contribución ha permitido que la comunidad pueda vivir en un ambiente mas sano, limpio y atractivo.</p>
+        <!-- Sección: Historias de Impacto (Nueva Versión) -->
+        <section id="historias-impacto" class="historias-impacto-section">
+            <div class="container">
+                <h2>Cambiando Vidas</h2>
+                <p>Descubre lo que hacemos. Haz clic en "Conocer más" para ver la historia completa.</p>
+                <div class="historias-gallery">
+                    <div class="historia-item">
+                        <div class="historia-image">
+                            <!-- Placeholder: Inserta imagen representativa de la historia 1 -->
+                            <img src="img/historia1.jpg" alt="Historia 1">
+                        </div>
+                        <div class="historia-content">
+                            <h3>El Camino de María</h3>
+                            <p>María encontró nuevas oportunidades gracias a nuestros programas de capacitación.</p>
+                            <a href="full-story.html?id=1" class="btn-conocer">Conocer más</a>
+                        </div>
+                    </div>
+                    <div class="historia-item">
+                        <div class="historia-image">
+                            <!-- Placeholder: Inserta imagen representativa de la historia 2 -->
+                            <img src="img/historia2.jpg" alt="Historia 2">
+                        </div>
+                        <div class="historia-content">
+                            <h3>Renovando Esperanzas</h3>
+                            <p>Una comunidad se unió para transformar su entorno y construir un futuro mejor.</p>
+                            <a href="full-story.html?id=2" class="btn-conocer">Conocer más</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Nueva Sección: Únete Como Voluntario -->
-    <section id="hazte-voluntario" class="volunteer-call-to-action">
-        <div class="container">
-            <h2>¿Quieres Hacer la Diferencia?</h2>
-            <p>Únete a nosotros como voluntario y contribuye al cambio que quieres ver en el mundo.</p>
-            <a href="sections/volunteer.html" class="btn-volunteer">Hazte Voluntario</a>
-        </div>
-    </section>
-
-    <!-- Sección de Testimonios -->
-    <section id="testimonios" class="testimonials-section">
-        <div class="container">
-            <h2>Testimonios</h2>
-            <p>Conoce cómo nuestra fundación ha cambiado vidas:</p>
-
-            <div class="testimonials">
-                <div class="testimonial">
-                    <p>"Gracias a la Fundación Sofía Lorenzo, ahora tengo acceso a educación de calidad y nuevas
-                        oportunidades para un mejor futuro."</p>
-                    <span>- María García</span>
-                </div>
-                <div class="testimonial">
-                    <p>"El apoyo que recibí para iniciar mi pequeño negocio ha sido invaluable. Ahora puedo mantener a
-                        mi familia gracias a su ayuda."</p>
-                    <span>- Juan Pérez</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Ser voluntario en esta fundación me ha permitido dar algo de vuelta a mi comunidad. Es una
-                        experiencia que recomiendo a todos."</p>
-                    <span>- Carla Rodríguez</span>
+        <!-- Sección: ¿Por Qué Donar? (Tarjetas informativas) -->
+        <section id="porque-donar" class="porque-donar-section">
+            <hr>
+            <div class="container">
+                <h2>¿Por Qué Donar a Fundación Sofía Lorenzo?</h2>
+                <div class="donar-reasons">
+                    <div class="reason">
+                        <img src="img/icon-education.png" alt="Educación para Todos">
+                        <h3>Educación para Todos</h3>
+                        <p>Tu donación facilita el acceso a una educación de calidad para niños y jóvenes en comunidades
+                            vulnerables.</p>
+                    </div>
+                    <div class="reason">
+                        <img src="img/icon-health.png" alt="Salud y Bienestar">
+                        <h3>Salud y Bienestar</h3>
+                        <p>Apoyamos programas de salud que garantizan atención médica y nutrición para quienes más lo
+                            necesitan.</p>
+                    </div>
+                    <div class="reason">
+                        <img src="img/icon-community.png" alt="Desarrollo Comunitario">
+                        <h3>Desarrollo Comunitario</h3>
+                        <p>Impulsamos proyectos para el desarrollo sostenible y la autosuficiencia en comunidades
+                            desfavorecidas.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Sección: Únete Como Voluntario -->
+        <section id="hazte-voluntario" class="volunteer-call-to-action">
+            <div class="container">
+                <h2>¿Quieres Hacer la Diferencia?</h2>
+                <p>Únete a nosotros como voluntario y
+                    contribuye al cambio que deseas ver en el mundo.</p> <a href="sections/volunteer.html"
+                    class="btn-volunteer">Hazte Voluntario</a>
+            </div>
+        </section>
+
+        <!-- Sección: Impacto de Tu Donación (Diseño Reestructurado) -->
+        <section id="impacto-donacion" class="impacto-donacion-section">
+            <div class="container">
+                <h2>Nuestro trabajo</h2>
+                <p>Conoce el impacto que tienen tus contribuciones</p>
+                <div class="impact-mosaic">
+                    <div class="impact-item" style="background-image: url('img/Charla.jpeg');">
+                        <div class="overlay">
+                            <h3>Charlas Educativas</h3>
+                            <p>Con tu apoyo, impartimos charlas y talleres que empoderan a la comunidad.</p>
+                            <button class="btn-detalles">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="impact-item" style="background-image: url('img/Baile.jpeg');">
+                        <div class="overlay">
+                            <h3>Actividades de Contribución</h3>
+                            <p>Nuestras actividades fomentan el desarrollo integral de los niños.</p>
+                            <button class="btn-detalles">Ver Detalles</button>
+                        </div>
+                    </div>
+                    <div class="impact-item" style="background-image: url('img/Muro.jpeg');">
+                        <div class="overlay">
+                            <h3>Desarrollo del Pueblo</h3>
+                            <p>Tu contribución transforma entornos, creando comunidades más sanas y atractivas.</p>
+                            <button class="btn-detalles">Ver Detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
 
     <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
@@ -378,7 +550,7 @@
             <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
             <!-- Añade más enlaces a redes sociales si es necesario -->
         </div>
-        <p>&copy; 2024 Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+        <p>&copy; Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
     </footer>
 
     <script src="js/warning.js"></script>
