@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Contenido del modal
         const modalContent = `
-            <div class="modal-content">
+            <div class="modal-content_advertencia">
                 <h2>ADVERTENCIA</h2>
                 <p>Actualmente esta es una página en construcción. El diseño presente y las funcionalidades están sujetas a cambios.</p>
             </div>

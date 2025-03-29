@@ -7,6 +7,7 @@
     <title>Donaciones | Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
+    <script src="js/modals.js"></script>
     <style>
         /*** DONACIONES ***/
 
@@ -299,14 +300,60 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer__social-media">
-            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
-            <!-- Añade más enlaces a redes sociales si es necesario -->
+    <footer id="footer">
+        <div class="footer__container">
+            <div class="footer__section">
+                <a href="contact.html">
+                    <h4>Contacto</h4>
+                </a>
+                <p>📞 +1 (809) 745-6009</p>
+                <p>📞 +1 (849) 263-2939</p>
+                <p>📧 contacto@fundacionsofia.org</p>
+            </div>
+
+            <div class="footer__section">
+                <h4>Recursos</h4>
+                <a href="#preguntas-clave">Preguntas Frecuentes</a>
+                <a href="#">Blog</a>
+            </div>
+
+            <div class="footer__section">
+                <h4>Sobre Nosotros</h4>
+                <a href="#" class="open-modal" data-modal="terms-modal">Quienes Somos</a>
+            </div>
+
+            <div class="footer__section">
+                <hr>
+                <a href="#" class="open-modal" data-modal="terms-modal">Términos y Condiciones</a>
+                <a href="#" class="open-modal" data-modal="privacy-modal">Política de Privacidad</a>
+            </div>
         </div>
-        <p>&copy;  Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
+
+        <div class="footer__social-media">
+            <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png"
+                    alt="Instagram"></a>
+            <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
+        </div>
+
+        <p>&copy; Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Modales para Documentación -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Términos y Condiciones</h2>
+            <p>Ejemplo de términos y condiciones de la fundación...</p>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Política de Privacidad</h2>
+            <p>Ejemplo de política de privacidad de la fundación...</p>
+        </div>
+    </div>
 </body>
 
 </html>

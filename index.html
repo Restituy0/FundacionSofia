@@ -9,6 +9,11 @@
     <link rel="icon" href="img/logo.png">
     <style>
         /*** INICIO ***/
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
         .start-section {
             background-color: var(--primary-color);
             color: var(--btn-text-color);
@@ -70,26 +75,33 @@
             background-color: var(--highlight-color);
         }
 
-        /* Boton Volver */
-        #btnVolverArriba {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, opacity 0.3s;
+        /*Seccion: Cifras Clave*/
+        .cifras-section {
+            text-align: center;
+            padding: 50px 0;
+            background: #fff;
         }
 
-        #btnVolverArriba:hover {
-            background-color: var(--highlight-color);
-            opacity: 0.8;
+        .cifras-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cifra-item {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            background: white;
+            color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cifra-item:hover {
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
 
         /* Sección: Historias de Impacto */
@@ -100,11 +112,13 @@
         }
 
         .historias-impacto-section h2 {
+            margin: 0;
             font-size: 2.8em;
             color: var(--primary-color);
         }
 
         .historias-impacto-section p {
+            margin: 0;
             font-size: 1.2em;
             margin-bottom: 30px;
         }
@@ -220,17 +234,19 @@
         }
 
         .reason:hover {
-            transform: translateY(-5px);
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
 
         .reason img {
-            width: 70px;
-            margin-bottom: 15px;
+            width: 60px;
+            margin: 0;
+            padding: 0;
         }
 
         .reason h3 {
             font-size: 1.6em;
-            margin-bottom: 10px;
+            margin-bottom: 2px;
             color: var(--primary-color);
         }
 
@@ -239,10 +255,46 @@
             color: var(--text-color);
         }
 
+        /* Sección: Únete Como Voluntario */
+        .volunteer-call-to-action {
+            background: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .volunteer-call-to-action h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+
+        }
+
+        .volunteer-call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+
+        }
+
+        .btn-volunteer {
+            background: var(--accent-color);
+            color: var(--btn-text-color);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+
+        }
+
+        .btn-volunteer:hover {
+            background-color: var(--highlight-color);
+
+        }
+
         /* Sección: Impacto de Tu Donación */
         .impacto-donacion-section {
             background: #f9f9f9;
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
@@ -275,7 +327,7 @@
 
         .impact-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
 
         .overlay {
@@ -284,7 +336,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(215, 38, 56, 0.7); /* Rojo semitransparente para resaltar */
+            background: rgba(215, 38, 56, 0.4);
+            /* Rojo semitransparente para resaltar */
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -298,21 +351,18 @@
 
         .impact-item:hover .overlay {
             opacity: 1;
-
         }
 
         .overlay h3 {
             font-size: 1.8em;
             margin-bottom: 10px;
             color: var(--btn-text-color);
-
         }
 
         .overlay p {
             font-size: 1.1em;
             margin-bottom: 15px;
             text-align: center;
-
         }
 
         .btn-detalles {
@@ -325,50 +375,56 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: background-color 0.3s ease;
-
         }
 
         .btn-detalles:hover {
             background-color: var(--highlight-color);
-
         }
 
-
-        /* Sección: Únete Como Voluntario */
-        .volunteer-call-to-action {
-            background: var(--secondary-color);
-            color: var(--btn-text-color);
+        /* Seccion: FAQ */
+        .faq-section {
             padding: 40px 20px;
+            background: #f9f9f9;
             text-align: center;
-
         }
 
-        .volunteer-call-to-action h2 {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-
+        .faq-container {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
-        .volunteer-call-to-action p {
-            font-size: 1.2em;
-            margin-bottom: 25px;
-
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .btn-volunteer {
-            background: var(--accent-color);
-            color: var(--btn-text-color);
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.2em;
+        .faq-question {
+            background: #2196F3;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
             transition: background-color 0.3s ease;
-            text-transform: uppercase;
-
         }
 
-        .btn-volunteer:hover {
-            background-color: var(--highlight-color);
+        .faq-question:hover {
+            background-color: #1976D2;
+        }
 
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
         }
 
         /* Botón Volver Arriba */
@@ -402,7 +458,7 @@
     <header class="start-navbar">
         <nav class="navbar">
             <ul class="navbar__menu">
-                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li class="dropdown">
                     <a href="#">Iniciativas ▾</a>
                     <ul class="dropdown-menu">
@@ -432,15 +488,27 @@
                 </div>
                 <h1>Fundación Sofía Lorenzo</h1>
                 <p>Trabajando por un futuro mejor</p>
-                <a href="#donaciones" class="btn-donate">Muestranos tu Apoyo</a>
+                <a href="sections/donate.html" class="btn-donate">Muestranos tu Apoyo</a>
             </div>
         </section>
 
-        <!-- Sección: Historias de Impacto (Nueva Versión) -->
+        <!-- Sección: Cifras Clave -->
+        <section id="cifras-clave" class="cifras-section">
+            <div class="container">
+                <div class="cifras-grid">
+                    <div class="cifra-item"><span id="proyectos">0</span> Proyectos</div>
+                    <div class="cifra-item"><span id="beneficiarios">?</span> Donaciones</div>
+                    <div class="cifra-item"><span id="voluntarios">?</span> Voluntarios</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Historias de Impacto -->
         <section id="historias-impacto" class="historias-impacto-section">
             <div class="container">
                 <h2>Cambiando Vidas</h2>
-                <p>Descubre lo que hacemos. Haz clic en "Conocer más" para ver la historia completa.</p>
+                <p><a href="sections/aboutus.html">Descubre lo que hacemos</a></p>
+                <p>Haz clic en "Conocer más" para ver la historia completa.</p>
                 <div class="historias-gallery">
                     <div class="historia-item">
                         <div class="historia-image">
@@ -449,7 +517,8 @@
                         </div>
                         <div class="historia-content">
                             <h3>El Camino de María</h3>
-                            <p>María encontró nuevas oportunidades gracias a nuestros programas de capacitación.</p>
+                            <p>María encontró nuevas oportunidades gracias a nuestros programas de capacitación que...
+                            </p>
                             <a href="full-story.html?id=1" class="btn-conocer">Conocer más</a>
                         </div>
                     </div>
@@ -460,7 +529,7 @@
                         </div>
                         <div class="historia-content">
                             <h3>Renovando Esperanzas</h3>
-                            <p>Una comunidad se unió para transformar su entorno y construir un futuro mejor.</p>
+                            <p>Una comunidad se unió para transformar...</p>
                             <a href="full-story.html?id=2" class="btn-conocer">Conocer más</a>
                         </div>
                     </div>
@@ -475,22 +544,24 @@
                 <h2>¿Por Qué Donar a Fundación Sofía Lorenzo?</h2>
                 <div class="donar-reasons">
                     <div class="reason">
-                        <img src="img/icon-education.png" alt="Educación para Todos">
-                        <h3>Educación para Todos</h3>
-                        <p>Tu donación facilita el acceso a una educación de calidad para niños y jóvenes en comunidades
-                            vulnerables.</p>
+                        <img src="img/colaborations.svg" alt="Mano a Mano">
+                        <h3>Mano a Mano</h3>
+                        <p>Tus colaboraciones se transforman en acciones donde juntos podemos ayudar a todas las
+                            personas que necesitan ayuda.</p> <a href="sections/activities.html"> Echale un vistazo a
+                            algunas</a>
                     </div>
                     <div class="reason">
-                        <img src="img/icon-health.png" alt="Salud y Bienestar">
-                        <h3>Salud y Bienestar</h3>
+                        <img src="img/transformas-vidas.svg" alt="Salvas Vidas">
+                        <h3>Salvas Vidas</h3>
                         <p>Apoyamos programas de salud que garantizan atención médica y nutrición para quienes más lo
                             necesitan.</p>
                     </div>
                     <div class="reason">
-                        <img src="img/icon-community.png" alt="Desarrollo Comunitario">
-                        <h3>Desarrollo Comunitario</h3>
-                        <p>Impulsamos proyectos para el desarrollo sostenible y la autosuficiencia en comunidades
-                            desfavorecidas.</p>
+                        <img src="img/check.svg" alt="Verificacion">
+                        <h3>Verificacion</h3>
+                        <p>Comprueba nuestra dedicación en nuestras redes sociales <a href="#footer"> aquí</a> o <a
+                                href="sections/contact.html"> contactanos</a> para resolver cualquier duda que tengas.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -506,7 +577,7 @@
             </div>
         </section>
 
-        <!-- Sección: Impacto de Tu Donación (Diseño Reestructurado) -->
+        <!-- Sección: Impacto de Tu Donación -->
         <section id="impacto-donacion" class="impacto-donacion-section">
             <div class="container">
                 <h2>Nuestro trabajo</h2>
@@ -516,44 +587,114 @@
                         <div class="overlay">
                             <h3>Charlas Educativas</h3>
                             <p>Con tu apoyo, impartimos charlas y talleres que empoderan a la comunidad.</p>
-                            <button class="btn-detalles">Ver Detalles</button>
+                            <a href="sections/activities.html" style="color: white;"><button class="btn-detalles">Ver
+                                    Detalles</button></a>
                         </div>
                     </div>
                     <div class="impact-item" style="background-image: url('img/Baile.jpeg');">
                         <div class="overlay">
                             <h3>Actividades de Contribución</h3>
                             <p>Nuestras actividades fomentan el desarrollo integral de los niños.</p>
-                            <button class="btn-detalles">Ver Detalles</button>
+                            <a href="sections/activities.html" style="color: white;"><button class="btn-detalles">Ver
+                                    Detalles</button></a>
                         </div>
                     </div>
                     <div class="impact-item" style="background-image: url('img/Muro.jpeg');">
                         <div class="overlay">
                             <h3>Desarrollo del Pueblo</h3>
                             <p>Tu contribución transforma entornos, creando comunidades más sanas y atractivas.</p>
-                            <button class="btn-detalles">Ver Detalles</button>
+                            <a href="sections/activities.html" style="color: white;"><button class="btn-detalles">Ver
+                                    Detalles</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <!-- Sección: Preguntas Clave -->
+        <section id="preguntas-clave" class="faq-section">
+            <hr>
+            <div class="faq-container">
+                <h2>Preguntas Frecuentes</h2>
+                <div class=" faq-item">
+                    <h3>¿Qué hace la Fundación Sofía Lorenzo?</h3>
+                    <p>Nos enfocamos en apoyar comunidades vulnerables a través de programas educativos, de salud y
+                        desarrollo social.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cómo puedo ayudar?</h3>
+                    <p>Puedes contribuir con donaciones, tiempo como voluntario o difundiendo nuestro mensaje.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cómo se utilizan las donaciones?</h3>
+                    <p>Las donaciones se destinan directamente a proyectos de impacto social en comunidades necesitadas.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
+        <div class="footer__container">
+            <div class="footer__section">
+                <a href="sections/contact.html">
+                    <h4>Contacto</h4>
+                </a>
+                <p>📞 +1 (809) 745-6009</p>
+                <p>📞 +1 (849) 263-2939</p>
+                <p>📧 contacto@fundacionsofia.org</p>
+            </div>
+
+            <div class="footer__section">
+                <h4>Recursos</h4>
+                <a href="#preguntas-clave">Preguntas Frecuentes</a>
+                <a href="#">Blog</a>
+            </div>
+
+            <div class="footer__section">
+                <h4>Sobre Nosotros</h4>
+                <a href="#" class="open-modal" data-modal="terms-modal">Quienes Somos</a>
+            </div>
+
+            <div class="footer__section">
+                <hr>
+                <a href="#" class="open-modal" data-modal="terms-modal">Términos y Condiciones</a>
+                <a href="#" class="open-modal" data-modal="privacy-modal">Política de Privacidad</a>
+            </div>
+        </div>
+
         <div class="footer__social-media">
             <a href="https://www.instagram.com/fundacion.sofia"><img src="../img/instagram-icon.png"
                     alt="Instagram"></a>
             <a href="https://www.tiktok.com/@fundacion.sofia"><img src="../img/tiktok-icon.svg" alt="TikTok"></a>
-            <!-- Añade más enlaces a redes sociales si es necesario -->
         </div>
+
         <p>&copy; Fundación Sofía Lorenzo. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Modales para Documentación -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Términos y Condiciones</h2>
+            <p>Ejemplo de términos y condiciones de la fundación...</p>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Política de Privacidad</h2>
+            <p>Ejemplo de política de privacidad de la fundación...</p>
+        </div>
+    </div>
+
+
     <script src="js/warning.js"></script>
+    <script src="js/modals.js"></script>
     <script>
         // Mostrar botón cuando el usuario hace scroll hacia abajo
         window.onscroll = function () { mostrarBoton() };
@@ -571,6 +712,39 @@
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        // Cargar datos dinámicos desde Google API
+        // URL de la API de Google Sheets
+        const sheetID = '182Mc52g86T-wurWKcDCTZ2ll-SWq25WUlBbuxVOQjjk';
+        const apiKey = 'AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28';
+        const sheetName = 'Proyectos';
+        const range = `${sheetName}!A:A`; // Tomamos toda la columna A para contar las filas
+
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const url = `${proxyUrl}${encodeURIComponent(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)}`;
+
+        async function cargarDatos() {
+            try {
+                let response = await fetch(url);
+                let data = await response.json();
+                let content = JSON.parse(data.contents); // Desanidar datos por usar proxy
+
+                let totalProyectos = content.values ? content.values.length - 1 : 0; // Restamos 1 si la primera fila es encabezado
+
+                document.getElementById('proyectos').textContent = totalProyectos;
+            } catch (error) {
+                console.error('Error cargando datos:', error);
+            }
+        }
+        cargarDatos();
+
+        // Interaccion con las preguntas
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                let parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
     </script>
 </body>
 
