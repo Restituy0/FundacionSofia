@@ -23,6 +23,7 @@
             margin: 0;
             font-size: 2.5rem;
         }
+
         h1::after {
             content: '';
             width: 15rem;
@@ -125,6 +126,7 @@
         </section>
 
         <div id="video-gallery"></div>
+        <h2 id="no-activities-message" style="text-align: center;">NO HAY ACTIVIDADES DISPONIBLES</h2>
     </main>
 
     <!-- Filtros -->
@@ -177,7 +179,7 @@
 
             <div class="footer__section">
                 <h4>Sobre Nosotros</h4>
-                <a href="#" class="open-modal" data-modal="terms-modal">Quienes Somos</a>
+                <a href="aboutus.html">Quienes Somos</a>
             </div>
 
             <div class="footer__section">
@@ -220,6 +222,8 @@
 
         const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
 
+        const noActivitiesMessage = document.getElementById('no-activities-message');
+
         async function fetchVideos() {
             try {
                 const response = await fetch(apiUrl);
@@ -227,18 +231,20 @@
                 const rows = data.values;
 
                 if (!rows || rows.length < 2) {
+                    noActivitiesMessage.style.display = 'block';
                     console.error("No hay datos en la hoja.");
                     return;
-                }
-
-                const headers = rows[0];
-                const videos = rows.slice(1).map(row => {
-                    let obj = {};
-                    headers.forEach((header, index) => {
-                        obj[header.toLowerCase()] = row[index] || "";
+                } else {
+                    noActivitiesMessage.style.display = 'none';
+                    const headers = rows[0];
+                    const videos = rows.slice(1).map(row => {
+                        let obj = {};
+                        headers.forEach((header, index) => {
+                            obj[header.toLowerCase()] = row[index] || "";
+                        });
+                        return obj;
                     });
-                    return obj;
-                });
+                }
 
                 renderVideos(videos);
                 populateCategoryFilter(videos);

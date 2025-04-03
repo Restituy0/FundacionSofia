@@ -9,19 +9,20 @@
     <script src="js/modals.js"></script>
     <style>
         .contact-container {
-            max-width: 1100px;
-            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px 20px;
             text-align: center;
         }
         .contact-header {
-            font-size: 2rem;
+            font-size: 2.5em;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
         .contact-header::after {
             content: '';
@@ -47,52 +48,81 @@
             width: 15px;
         }
         .map-container {
-            margin: 30px 0;
+            width: 800px;
+            height: 350px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 30px;
+            padding: 15px;
             border-radius: 10px;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .map-container:hover{
+            transform: scale(1.01, 1.01);
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
         .contact-form {
-            text-align: left;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
             max-width: 600px;
-            margin: 0 auto;
         }
-        .contact-form label {
+
+        .contact-form h1 {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 8px;
             display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
+
+        .form-group input,
+        .form-group textarea {
+            width: 95%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            color: #333;
         }
-        .contact-form button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            background-color: var(--secondary-color);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
+
+        .btn-submit {
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 1.2em;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
         }
-        .contact-form button:hover {
-            background-color: var(--accent-color);
+
+        .btn-submit:hover {
+            background-color: #20b259;
         }
 
         /* Card de WhatsApp */
         .whatsapp-card {
-            margin: 40px auto;
+            margin: 20px auto;
             background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
             border-radius: 15px;
             color: white;
-            padding: 20px;
+            padding: 25px;
             max-width: 50rem;
             display: flex;
             align-items: center;
@@ -187,27 +217,33 @@
         <div class="map-container">
             <iframe
                 width="100%"
-                height="350"
+                height="100%"
                 frameborder="0"
-                style="border:0"
+                style="border-radius: 10px;"
                 allowfullscreen=""
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=Avenida+Nicol%C3%A1s+de+Ovando+No.+350,+Santo+Domingo&output=embed">
             </iframe>
         </div>
         <div class="contact-form">
-            <h3 style="text-align: center;">Dejanos un mensaje</h3>
-            <form action="#" method="post">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                
-                <button type="submit">Enviar</button>
+            <h1 style="text-align: center;">Dejanos un mensaje</h1>
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar</button>
             </form>
         </div>
     </div>
@@ -245,7 +281,7 @@
 
             <div class="footer__section">
                 <h4>Sobre Nosotros</h4>
-                <a href="#" class="open-modal" data-modal="terms-modal">Quienes Somos</a>
+                <a href="aboutus.html">Quienes Somos</a>
             </div>
 
             <div class="footer__section">

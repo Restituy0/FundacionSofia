@@ -5,6 +5,7 @@
     --accent-color: #F7B32B; /* Amarillo */
     --highlight-color: #D72638; /* Rojo para resaltados */
     --background-color: #F5F5F5; /* Gris Claro */
+    --submit-color: #25D366 /* Verde Whatsapp */
     --text-color: #333333; /* Gris Oscuro */
     --btn-text-color: #FFFFFF; /* Blanco */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -150,6 +151,7 @@ hr {
 
 /* Footer */
 footer {
+    margin-top: auto;
     background-color: var(--primary-color);
     padding: 40px 20px;
     text-align: center;

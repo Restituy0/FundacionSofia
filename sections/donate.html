@@ -87,7 +87,7 @@
         .bank-details h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
-            color: var(--highlight-color);
+            color: var(--accent-color);
         }
 
         .bank-details p {
@@ -105,36 +105,40 @@
         }
 
 
-        /* Sección de Llamadas a la Acción */
-        .cta-donar-section {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 80px 20px;
+        /* Sección: Únete Como Voluntario */
+        .volunteer-call-to-action {
+            background: var(--secondary-color);
+            color: var(--btn-text-color);
+            padding: 40px 20px;
             text-align: center;
         }
 
-        .cta-donar-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        .volunteer-call-to-action h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+
         }
 
-        .cta-donar-section p {
+        .volunteer-call-to-action p {
             font-size: 1.2em;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
+
         }
 
-        .btn-voluntario-cta {
-            background-color: #ffffff;
-            color: var(--highlight-color);
+        .btn-volunteer {
+            background: var(--accent-color);
+            color: var(--btn-text-color);
             padding: 15px 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1.2em;
-            text-decoration: none;
             transition: background-color 0.3s ease;
+            text-transform: uppercase;
+
         }
 
-        .btn-voluntario-cta:hover {
-            background-color: #e0e0e0;
+        .btn-volunteer:hover {
+            background-color: var(--highlight-color);
+
         }
 
         /* Sección de Impacto */
@@ -217,13 +221,13 @@
     <section id="donaciones" class="donaciones-section">
         <div class="container">
             <div class="donaciones-columns">
-                <!-- Columna de Donaciones (PayPal/DonorBox) -->
+                <!-- Columna de Donaciones (PayPal/DonorBox)
                 <div class="donaciones-form-column">
                     <h2>Haz tu Donación</h2>
                     <p>Contribuye con una donación única o recurrente utilizando los siguientes
                         métodos:</p>
 
-                    <!-- Botón de PayPal -->
+                    Botón de PayPal
                     <div class="donate-paypal">
                         <form action="https://www.paypal.com/donate" method="post" target="_top">
                             <input type="hidden" name="business" value="TU_CORREO@DOMINIO.COM" />
@@ -237,21 +241,20 @@
                         </form>
                     </div>
 
-                    <!-- Botón de DonorBox -->
+                    Botón de DonorBox
                     <div class="donate-donorbox">
-                        <!-- Insertar código de integración de DonorBox -->
+                        Insertar código de integración de DonorBox
                         <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
                         <iframe src="https://donorbox.org/embed/TU_ID_DE_CAMPAÑA" height="685px" width="100%"
                             style="max-width: 500px; min-width: 310px; max-height:none!important" seamless="seamless"
                             name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Columna de Transferencias Bancarias -->
                 <div class="transferencias-column">
                     <h2>Transferencias Bancarias</h2>
-                    <p>Realizar tu donación mediante una transferencia bancaria a las siguientes
-                        cuentas:</p>
+                    <p>Realiza tu donación mediante una Transferencia Bancaria</p>
 
                     <div class="bank-details">
                         <h3>Banco Popular</h3>
@@ -275,13 +278,13 @@
         </div>
     </section>
 
-    <!-- Sección de Llamadas a la Acción -->
-    <section id="cta-donar" class="cta-donar-section">
+    <!-- Sección: Únete Como Voluntario -->
+    <section id="hazte-voluntario" class="volunteer-call-to-action">
         <div class="container">
-            <h2>Tu apoyo marca la diferencia</h2>
-            <p>Con tu donación, podemos continuar desarrollando proyectos que impacten de manera positiva a miles de
-                personas en nuestra comunidad. ¡Gracias por tu generosidad!</p>
-            <a href="#form-voluntario" class="btn-voluntario-cta">Hazte Voluntario</a>
+            <h2>¿Quieres Hacer la Diferencia?</h2>
+            <p>Únete a nosotros como voluntario y
+                contribuye al cambio que deseas ver en el mundo.</p> <a href="sections/volunteer.html"
+                class="btn-volunteer">Hazte Voluntario</a>
         </div>
     </section>
 
@@ -319,7 +322,7 @@
 
             <div class="footer__section">
                 <h4>Sobre Nosotros</h4>
-                <a href="#" class="open-modal" data-modal="terms-modal">Quienes Somos</a>
+                <a href="aboutus.html">Quienes Somos</a>
             </div>
 
             <div class="footer__section">
