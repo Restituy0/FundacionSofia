@@ -7,7 +7,7 @@
     <title>Voluntarios - Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
-    <script src="js/modals.js"></script>
+    <script src="../js/modals.js"></script>
     <style>
         /* Sección de Voluntarios */
         .volunteer-section {
@@ -159,7 +159,7 @@
         .volunteer-form-section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--title-color);
         }
 
         .volunteer-form-section p {
@@ -283,7 +283,7 @@
 
         .volunteer-form-section h2 {
             font-size: 2.5em;
-            color: #333;
+            color: var(--title-color);
         }
 
         .volunteer-form-section p {
@@ -308,7 +308,7 @@
 
         .form-group label {
             font-size: 1.1em;
-            color: #333;
+            color: var(--title-color);
             margin-bottom: 8px;
             display: block;
         }
@@ -320,11 +320,11 @@
             border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 1em;
-            color: #333;
+            color: var(--title-color);
         }
 
         .btn-submit {
-            background-color: #25D366;
+            background-color: var(--submit-light-color);
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -337,12 +337,12 @@
         }
 
         .btn-submit:hover {
-            background-color: #20b259;
+            background-color: var(--submit-color);
         }
 
         /* Card de WhatsApp */
         .whatsapp-card {
-            background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+            background: linear-gradient(135deg, var(--submit-light-color) 0%, #128c7e 100%);
             border-radius: 15px;
             color: white;
             padding: 20px;
@@ -377,7 +377,7 @@
 
         .btn-whatsapp {
             background-color: white;
-            color: #25D366;
+            color: var(--submit-light-color);
             text-align: center;
             padding: 10px 20px;
             border-radius: 10px;
@@ -514,7 +514,7 @@
         <p>Completa el siguiente formulario para ser parte de nuestra misión.</p>
 
         <!-- Formulario -->
-        <form action="submit_volunteer_form.php" method="POST" class="volunteer-form">
+        <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="volunteer-form">
             <div class="form-group">
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -532,6 +532,8 @@
                 <textarea id="habilidades" name="habilidades" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Enviar</button>
+            <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/volunteer.html">
+            <input type="hidden" name="_captcha" value="false">
         </form>
 
         <!-- Card de WhatsApp -->

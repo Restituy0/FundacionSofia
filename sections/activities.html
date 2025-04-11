@@ -9,76 +9,456 @@
     <link rel="icon" href="../img/logo.png">
     <script async src="https://www.instagram.com/embed.js"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
-    <script src="js/modals.js"></script>
+    <script src="../js/modals.js"></script>
     <style>
-        .container {
-            margin: 0;
-            padding: 0;
-            padding: 20px;
-            text-align: center;
+        :root {
+            --bg-light: #f9f9f9;
+            --accent: #fff0f6;
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #333;
+            color: var(--text-color);
             margin: 0;
             font-size: 2.5rem;
+            text-align: center;
         }
 
-        h1::after {
+        h2 {
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 100%;
+            padding: 1.5rem 0;
+        }
+
+        /* Sección: Actividades Dinamicas */
+
+        .actividades-dinamicas {
+            background-color: var(--background-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .actividades-dinamicas h2 {
+            font-weight: var(--background-color);
+            font-size: 1.2rem;
+        }
+
+        .actividades-dinamicas h2::after {
             content: '';
             width: 15rem;
             height: 5px;
             background: var(--highlight-color);
+            border-radius: 8px;
             display: block;
             margin: 10px auto;
         }
 
-        .filter-container {
-            margin: 20px 0;
+        .filtro-categorias {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
         #category-filter {
             background-color: transparent;
+            border-radius: 8px;
             text-align: center;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
         }
 
-        #category-filter:hover {
-            transform: scale(1.1, 1.1);
+        #category-filter:focus {
+            box-shadow: 0 0 0 3px rgba(255, 2, 2, 0.185);
         }
 
-        #video-gallery {
-            margin-top: 3%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
+        /* Diseño: Cards de Videos */
+
+        /* Contenedor general */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
         }
 
+        /* Card principal */
         .video-card {
-            margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(145deg, #ffffff, #f3f4f7);
+            border-radius: 2xl;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            min-width: 300px;
-            min-height: 350px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
         .video-card:hover {
-            transform: scale(1.1, 1.1);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
-        iframe {
+        /* Etiqueta flotante de categoría */
+        .category-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #e63946;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Etiqueta flotante de fecha */
+        .fecha {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            color: white;
+            padding: 4px 12px;
+            z-index: 2;
+        }
+
+        /* Columnas internas */
+        .video-card-content {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
             width: 100%;
-            height: 180px;
+        }
+
+        /* Miniatura */
+        .thumbnail-column {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail {
+            transform: scale(1.03);
+        }
+
+        /* Ícono social en lugar de miniatura */
+        .video-thumbnail.social-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            object-fit: contain;
+            background-color: #fff;
+            padding: 5px;
+        }
+
+        /* Botón de reproducción */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 15%;
+            font-size: 1.5rem;
+            padding: 0.8rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-thumbnail-wrapper:hover .play-button {
+            opacity: 1;
+        }
+
+        /* Columna de texto */
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Título */
+        .info-column h3 {
+            font-size: 1.5rem;
+            color: #003f88;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Descripción */
+        .info-column p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* Botón de acción */
+        .social-link {
+            align-self: flex-start;
+            background: #0077b6;
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .social-link:hover {
+            background-color: #023e8a;
+            transform: scale(1.05);
+        }
+
+        /* Íconos sociales */
+        .social-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            padding: 0.3rem;
+            margin: auto;
+        }
+
+        /* Modal video */
+        .video-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .video-modal {
+            padding: 1rem;
+            border-radius: 12px;
+            max-width: 90%;
+            width: 640px;
+            animation: fadeIn 0.3s ease-out;
+            position: relative;
+        }
+
+        .video-modal iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            background: var(--highlight-color);
+            /* Usa tu rojo institucional */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-modal:hover {
+            background-color: #a61e2a;
+            /* Un rojo más oscuro al pasar el mouse */
+        }
+
+
+        .animated-modal {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .animated-modal-out {
+            animation: fadeOut 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+
+        /* Sección: Recorrido de Logros */
+
+        .timeline-actividades {
+            background-color: var(--background-color);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            border-left: 4px solid var(--highlight-color);
+            padding: 1rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+        }
+
+        .timeline-item .fecha {
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+
+        /* Sección: Llamada a la accion */
+
+        .formas-participar {
+            background-image: linear-gradient(to right, #0383f3, #004B8D);
+            text-align: center;
+        }
+
+        .formas-participar h2 {
+            color: var(--background-color);
+        }
+
+        .opciones-participar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .opcion {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .opcion:hover {
+            transform: scale(1.05, 1.05);
+        }
+
+        #opcion1 {
+            box-shadow: 0 4px 6px rgb(0, 153, 255);
+        }
+
+        #opcion2 {
+            box-shadow: 0 4px 6px rgb(255, 153, 0);
+        }
+
+        .btn-primario {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn-secundario {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        /* Sección: Cierre */
+
+        .cierre-cta {
+            background-color: var(--background-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .btn-principal {
+            padding: 0.8rem 1.6rem;
+            background-color: var(--backbround-color);
+            box-shadow: 0 0 4px 2px black;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-principal:hover {
+            transform: scale(1.05, 1.05);
+        }
+
+        @media screen and (max-width: 768px) {
+            .opciones-participar {
+                flex-direction: column;
+            }
+
+            #video-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .video-card-content {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbnail-column {
+                clip-path: none;
+            }
         }
     </style>
 </head>
@@ -115,21 +495,71 @@
     </header>
 
 
-    <main class="container">
-        <h1>Actividades de nuestra fundación</h1>
-        <p>Aquí puedes ver algunos de los proyectos y actividades en los que hemos trabajado.</p>
-        <section>
-            <label for="category-filter">Filtrar por categoría:</label>
-            <select id="category-filter">
-                <option value="all">Todas</option>
-            </select>
-        </section>
+    <section class="actividades-dinamicas">
+        <h1>Conoce Nuestras Acciones Mas Destacadas</h1>
+        <h2>Estas son las iniciativas que están generando un cambio real gracias a personas como tú.</h2>
+        </div>
+        <div class="container">
+            <div class="filtro-categorias">
+                <label for="category-filter">Filtrar por categoría:</label>
+                <select id="category-filter">
+                    <option value="all">Todas</option>
+                </select>
+            </div>
+            <div id="video-gallery" class="galeria-grid"></div>
+            <h2 id="no-activities-message" style="display: none;">NO HAY ACTIVIDADES DISPONIBLES</h2>
+        </div>
+    </section>
 
-        <div id="video-gallery"></div>
-        <h2 id="no-activities-message" style="text-align: center;">NO HAY ACTIVIDADES DISPONIBLES</h2>
-    </main>
+    <div>
+        <hr>
+    </div>
 
-    <!-- Filtros -->
+    <section class="timeline-actividades">
+        <div class="container">
+            <h2>Recorrido de Nuestros Logros</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="fecha">Ene 2024</span>
+                    <h3>Jornada de Salud en San Cristóbal</h3>
+                    <p>Más de 300 personas recibieron atención médica gratuita.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="fecha">Nov 2023</span>
+                    <h3>Feria Educativa Comunitaria</h3>
+                    <p>Se entregaron útiles escolares a más de 200 niños y niñas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="formas-participar">
+        <div class="container">
+            <h2>¿Te Gustaría Participar?</h2>
+            <div class="opciones-participar">
+                <div class="opcion" id="opcion1">
+                    <h3>Como Voluntario</h3>
+                    <p>Aporta tu tiempo y energía en nuestras próximas actividades.</p>
+                    <a href="volunteer.html" class="btn-primario">Únete</a>
+                </div>
+                <div class="opcion" id="opcion2">
+                    <h3>Con una Donación</h3>
+                    <p>Cada aporte cuenta para seguir cambiando vidas.</p>
+                    <a href="donate.html" class="btn-secundario">Donar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cierre-cta">
+        <div class="container">
+            <h2>Juntos podemos lograr más</h2>
+            <p>Explora nuestros proyectos y sé parte del cambio.</p>
+            <a href="proyectos.html" class="btn-principal">Proyectos</a>
+        </div>
+    </section>
+
+    <!-- Filtros no dinamicos -->
     <!-- <main class="container">
         <h1>Actividades de nuestra fundación</h1>
         <p>Aquí puedes ver algunos de los proyectos y actividades en los que hemos trabajado.</p>
@@ -216,12 +646,10 @@
     </div>
 
     <script>
-        const sheetId = "1KqHfePXpW_AURtOtL7JXC5VdaOPHg8EO-xwEFHAXStQ";
+        const sheetId = "1xS-cmsoves7NSB1wlqFyyejReRD_yDnsi3vCGyU9mrE";
         const sheetName = "Actividades";
         const apiKey = "AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28";
-
         const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
-
         const noActivitiesMessage = document.getElementById('no-activities-message');
 
         async function fetchVideos() {
@@ -229,6 +657,7 @@
                 const response = await fetch(apiUrl);
                 const data = await response.json();
                 const rows = data.values;
+                let videos = [];
 
                 if (!rows || rows.length < 2) {
                     noActivitiesMessage.style.display = 'block';
@@ -237,7 +666,7 @@
                 } else {
                     noActivitiesMessage.style.display = 'none';
                     const headers = rows[0];
-                    const videos = rows.slice(1).map(row => {
+                    videos = rows.slice(1).map(row => {
                         let obj = {};
                         headers.forEach((header, index) => {
                             obj[header.toLowerCase()] = row[index] || "";
@@ -262,94 +691,105 @@
                 .forEach(video => {
                     const div = document.createElement("div");
                     div.classList.add("video-card");
+
+                    const isYouTube = video.video_url.includes("youtube.com") || video.video_url.includes("youtu.be");
+                    const isVimeo = video.video_url.includes("vimeo.com");
+                    const isTikTok = video.video_url.includes("tiktok.com");
+                    const isInstagram = video.video_url.includes("instagram.com");
+                    const isSocial = isTikTok || isInstagram;
+
+                    const thumbnail = isYouTube
+                        ? getYouTubeThumbnail(video.video_url)
+                        : isVimeo
+                            ? `https://vumbnail.com/${getVimeoId(video.video_url)}.jpg`
+                            : isTikTok
+                                ? "https://www.tiktok.com/favicon.ico"
+                                : isInstagram
+                                    ? "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                    : "";
+
+                    const embedUrl = isYouTube
+                        ? convertToYouTubeEmbed(video.video_url)
+                        : isVimeo
+                            ? convertToVimeoEmbed(video.video_url)
+                            : video.video_url;
+
                     div.innerHTML = `
-                        <h3>${video.nombre}</h3>
-                        ${getEmbedCode(video.video_url)}
-                        <p>${video.descripcion}</p>
-                        <p><strong>Categoría:</strong> ${video.categoria}</p>
-                        <p><strong>Fecha:</strong> ${video.fecha}</p>
+                        <div class="video-card-content premium">
+                            <div class="thumbnail-column">
+                                <div class="video-thumbnail-wrapper">
+                                    <img src="${thumbnail}" alt="Miniatura del video" class="video-thumbnail ${isSocial ? "social-thumb" : ""}">
+                                    ${!isSocial ? `<button class="play-button" data-video-url="${embedUrl}">▶</button>` : ""}
+                                </div>
+                            </div>
+                            <div class="info-column">
+                                <span class="category-tag">${video.categoria}</span>
+                                <h3>${video.titulo}</h3>
+                                <p class="descripcion">${video.descripcion}</p>
+                                <p class="fecha">📅 ${video.fecha}</p>
+                                ${isSocial ? `<a href="${embedUrl}" target="_blank" class="social-link">Ver en la plataforma</a>` : ""}
+                            </div>
+                        </div>
                     `;
                     container.appendChild(div);
                 });
 
-            setTimeout(loadEmbedScripts, 1000);
+            setTimeout(() => {
+                document.querySelectorAll(".play-button").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const videoUrl = btn.getAttribute("data-video-url");
+                        openModal(videoUrl);
+                    });
+                });
+            }, 500);
         }
 
-        function getEmbedCode(url) {
-            if (url.includes("youtube.com") || url.includes("youtu.be")) {
-                return generateEmbedHTML(convertToYouTubeEmbed(url), getYouTubeThumbnail(url));
-            } else if (url.includes("vimeo.com")) {
-                return generateEmbedHTML(convertToVimeoEmbed(url), getVimeoThumbnail(url));
-            } else if (url.includes("tiktok.com")) {
-                return generateEmbedHTML(url, "https://www.tiktok.com/favicon.ico", true);
-            } else if (url.includes("instagram.com")) {
-                return generateEmbedHTML(url, "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png", true);
-            } else {
-                return `<p><a href="${url}" target="_blank">Ver video</a></p>`;
-            }
+        function openModal(videoUrl) {
+            const modal = document.createElement("div");
+            modal.classList.add("video-modal-overlay");
+            modal.innerHTML = `
+                <div class="video-modal animated-modal">
+                    <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <button class="close-modal" aria-label="Cerrar modal">&times;</button>
+            `;
+            document.body.appendChild(modal);
+
+            modal.querySelector(".close-modal").addEventListener("click", () => closeModal(modal));
+            document.addEventListener("keydown", e => {
+                if (e.key === "Escape") closeModal(modal);
+            });
         }
 
-        function generateEmbedHTML(embedUrl, thumbnail, isSocial = false) {
-            if (isSocial) {
-                return `
-            <div class="social-video">
-                <a href="${embedUrl}" target="_blank">
-                    <img src="${thumbnail}" alt="Vista previa" style="width: 50px; height: 50px; object-fit: contain;">
-                    <p>Ver en la plataforma</p>
-                </a>
-            </div>
-        `;
-            } else {
-                return `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
-            }
-        }
-
-
-        function loadEmbedScripts() {
-            loadScript("https://www.tiktok.com/embed.js");
-            loadScript("https://www.instagram.com/embed.js");
-        }
-
-        function loadScript(src) {
-            if (!document.querySelector(`script[src="${src}"]`)) {
-                let script = document.createElement("script");
-                script.src = src;
-                script.async = true;
-                document.body.appendChild(script);
-            }
+        function closeModal(modal) {
+            modal.classList.remove("animated-modal");
+            modal.classList.add("animated-modal-out");
+            setTimeout(() => modal.remove(), 300);
         }
 
         function convertToYouTubeEmbed(url) {
-            const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+            const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]+)/);
             return videoId ? `https://www.youtube.com/embed/${videoId[1]}` : url;
         }
 
         function convertToVimeoEmbed(url) {
-            const videoId = url.match(/vimeo\.com\/(\d+)/);
-            return videoId ? `https://player.vimeo.com/video/${videoId[1]}` : url;
+            const videoId = getVimeoId(url);
+            return videoId ? `https://player.vimeo.com/video/${videoId}` : url;
         }
 
         function getYouTubeThumbnail(url) {
-            const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+            const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|shorts\/)([a-zA-Z0-9_-]+)/);
             return videoId ? `https://img.youtube.com/vi/${videoId[1]}/hqdefault.jpg` : "";
         }
 
-        async function getVimeoThumbnail(url) {
-            const videoId = url.match(/vimeo\.com\/(\d+)/);
-            if (!videoId) return "";
-            try {
-                const response = await fetch(`https://vimeo.com/api/v2/video/${videoId[1]}.json`);
-                const data = await response.json();
-                return data[0].thumbnail_large;
-            } catch {
-                return "";
-            }
+        function getVimeoId(url) {
+            const match = url.match(/vimeo\.com\/(\d+)/);
+            return match ? match[1] : "";
         }
 
         function populateCategoryFilter(videos) {
             const categoryFilter = document.getElementById("category-filter");
             categoryFilter.innerHTML = `<option value="all">Todas</option>`;
-
             const categories = [...new Set(videos.map(v => v.categoria))];
 
             categories.forEach(category => {
@@ -366,6 +806,8 @@
 
         fetchVideos();
     </script>
+
+
 
 </body>
 

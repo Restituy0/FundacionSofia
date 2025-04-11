@@ -7,103 +7,95 @@
     <title>Donaciones | Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
-    <script src="js/modals.js"></script>
+    <script src="../js/modals.js"></script>
     <style>
-        /*** DONACIONES ***/
-
+        /* Estilo general para la página de Donar */
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
         .donar-intro-section {
-            background-color: #ffffff;
-            padding: 100px 20px;
+            background: #f8f9fa;
             text-align: center;
-            color: #333;
+            padding: 2rem 1rem;
+            border-bottom: 2px solid #e0e0e0;
         }
 
         .donar-intro-section h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
             color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
 
         .donar-intro-section p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
         }
 
-        .btn-donar-cta {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-donar-cta:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* Sección de Donaciones */
         .donaciones-section {
-            background-color: #f8f8f8;
-            padding: 80px 20px;
+            background: #ffffff;
+            padding: 1rem;
         }
 
         .donaciones-columns {
             display: flex;
-            flex-wrap: nowrap;
+            text-align: center;
+            justify-content: center;
+            flex-wrap: wrap;
             justify-content: space-evenly;
         }
 
         .donaciones-form-column,
         .transferencias-column {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 5px;
-            min-width: 700px;
-            margin-bottom: 20px;
-            text-align: center;
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .donaciones-form-column h2,
         .transferencias-column h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
 
         .donaciones-form-column p,
         .transferencias-column p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            color: #666;
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .btn-donate {
+            background-color: #0070ba;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn-donate:hover {
+            background-color: #005fa3;
         }
 
         .bank-details {
-            margin-bottom: 30px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
         }
 
         .bank-details h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            color: #004080;
         }
-
-        .bank-details p {
-            font-size: 1.1em;
-            color: #333;
-        }
-
-        /* Estilo de Botones */
-        .donate-paypal form {
-            margin-bottom: 20px;
-        }
-
-        .donate-donorbox {
-            margin-bottom: 20px;
-        }
-
 
         /* Sección: Únete Como Voluntario */
         .volunteer-call-to-action {
@@ -138,40 +130,52 @@
 
         .btn-volunteer:hover {
             background-color: var(--highlight-color);
-
         }
 
-        /* Sección de Impacto */
-        .impacto-section {
-            background-color: #ffffff;
-            padding: 80px 20px;
+        .faq-donaciones-section {
+            background: #fdfdfd;
+            padding: 4rem 2rem;
+            border-top: 1px solid #ddd;
             text-align: center;
         }
 
-        .impacto-section h2 {
-            font-size: 2.5em;
+        .faq-donaciones-section h2 {
+            font-size: 2rem;
+            color: #004080;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-item h3 {
             color: #333;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .impacto-section p {
-            font-size: 1.2em;
+        .faq-item p {
             color: #666;
-            margin-bottom: 40px;
+            font-size: 1rem;
         }
 
-        .impacto-section ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
+        .faq-link {
+            margin-top: 2rem;
         }
 
-        .impacto-section ul li {
-            font-size: 1.5em;
-            color: var(--secondary-color);
+        .faq-link a {
+            color: #0070ba;
+            text-decoration: underline;
             font-weight: bold;
+        }
+
+        .faq-link a:hover {
+            color: #005fa3;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -207,98 +211,100 @@
         </nav>
     </header>
 
-    <!-- Sección de Introducción -->
+    <!-- Sección 1: Introducción -->
     <section id="donar-intro" class="donar-intro-section">
         <div class="container">
-            <h1>Únete a Nuestra Causa</h1>
-            <p>En la Fundación Sofía Lorenzo, trabajamos día a día para mejorar la vida de quienes más lo necesitan. Con
-                tu apoyo, podemos continuar nuestros esfuerzos y ampliar nuestro alcance. Descubre cómo puedes hacer la
-                diferencia.</p>
+            <h1>Tu Generosidad Cambia Vidas</h1>
+            <p>En la Fundación Sofía Lorenzo, cada donación representa una oportunidad: para alimentar, educar, sanar y
+                transformar. Con tu ayuda, seguimos sembrando esperanza donde más se necesita.</p>
         </div>
     </section>
 
-    <!-- Sección de Donaciones -->
+    <!-- Sección 2: Métodos para Donar -->
     <section id="donaciones" class="donaciones-section">
         <div class="container">
             <div class="donaciones-columns">
-                <!-- Columna de Donaciones (PayPal/DonorBox)
+                <!-- Columna 1: Donaciones en Línea -->
                 <div class="donaciones-form-column">
                     <h2>Haz tu Donación</h2>
-                    <p>Contribuye con una donación única o recurrente utilizando los siguientes
-                        métodos:</p>
+                    <p>Tu aporte puede marcar la diferencia. Escoge la opción que más te convenga:</p>
 
-                    Botón de PayPal
                     <div class="donate-paypal">
-                        <form action="https://www.paypal.com/donate" method="post" target="_top">
+                        <!-- <h3>Donar con PayPal</h3> -->
+                        <form action="https://www.paypal.com/donate" method="post" target="_blank">
                             <input type="hidden" name="business" value="TU_CORREO@DOMINIO.COM" />
                             <input type="hidden" name="no_recurring" value="0" />
                             <input type="hidden" name="item_name" value="Donación a Fundación Sofía Lorenzo" />
                             <input type="hidden" name="currency_code" value="USD" />
-                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
-                                border="0" name="submit" alt="Donate with PayPal button" />
-                            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1"
-                                height="1" />
+                            <button type="submit" class="btn-donate">Donar con PayPal</button>
                         </form>
                     </div>
 
-                    Botón de DonorBox
                     <div class="donate-donorbox">
-                        Insertar código de integración de DonorBox
+                        <h3>Donar con Tarjeta (DonorBox)</h3>
                         <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
                         <iframe src="https://donorbox.org/embed/TU_ID_DE_CAMPAÑA" height="685px" width="100%"
-                            style="max-width: 500px; min-width: 310px; max-height:none!important" seamless="seamless"
-                            name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
+                            style="max-width: 500px; min-width: 310px;" seamless="seamless" name="donorbox"
+                            frameborder="0" scrolling="no" allowpaymentrequest></iframe>
                     </div>
-                </div> -->
+                </div>
 
-                <!-- Columna de Transferencias Bancarias -->
+                <!-- Columna 2: Transferencias Bancarias -->
                 <div class="transferencias-column">
-                    <h2>Transferencias Bancarias</h2>
-                    <p>Realiza tu donación mediante una Transferencia Bancaria</p>
+                    <h2>Transferencia Bancaria</h2>
+                    <p>También puedes colaborar con una transferencia directa a nuestras cuentas:</p>
 
                     <div class="bank-details">
                         <h3>Banco Popular</h3>
-                        <p>Número de cuenta: <strong>1234-5678-9012</strong></p>
-                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <p><strong>Cuenta:</strong> 1234-5678-9012</p>
+                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
                     </div>
 
                     <div class="bank-details">
                         <h3>Banco BHD León</h3>
-                        <p>Número de cuenta: <strong>2345-6789-0123</strong></p>
-                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <p><strong>Cuenta:</strong> 2345-6789-0123</p>
+                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
                     </div>
 
                     <div class="bank-details">
-                        <h3>Banco de Reservas</h3>
-                        <p>Número de cuenta: <strong>3456-7890-1234</strong></p>
-                        <p>Titular: <strong>Fundación Sofía Lorenzo</strong></p>
+                        <h3>Banco Banreservas</h3>
+                        <p><strong>Cuenta:</strong> 3456-7890-1234</p>
+                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección: Únete Como Voluntario -->
+    <!-- Sección 3: Únete Como Voluntario -->
     <section id="hazte-voluntario" class="volunteer-call-to-action">
         <div class="container">
-            <h2>¿Quieres Hacer la Diferencia?</h2>
-            <p>Únete a nosotros como voluntario y
-                contribuye al cambio que deseas ver en el mundo.</p> <a href="sections/volunteer.html"
-                class="btn-volunteer">Hazte Voluntario</a>
+            <h2>¿Quieres Hacer Aun Mas?</h2>
+            <p>Conviértete en voluntario y ayuda no solo con tus recursos, sino también con tu tiempo y corazón.</p> 
+            <a href="sections/volunteer.html" class="btn-volunteer">Hazte Voluntario</a>
         </div>
     </section>
 
-    <!-- Sección de Proyectos y Resultados -->
-    <section id="impacto" class="impacto-section">
+    <!-- Sección 4: FAQ Donaciones -->
+    <section id="faq-donaciones" class="faq-donaciones-section">
         <div class="container">
-            <h2>Conoce Nuestro Impacto</h2>
-            <p>Gracias a la generosidad de personas como tú, hemos podido lograr grandes cambios en nuestra comunidad.
-                Aquí tienes algunos de nuestros logros recientes:</p>
-            <ul>
-                <li><strong>500+</strong> Niños y niñas educados</li>
-                <li><strong>200+</strong> Familias apoyadas con alimentos y suministros</li>
-                <li><strong>100+</strong> Voluntarios que se han unido a nuestra causa</li>
-            </ul>
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <h3>¿Es seguro donar por esta página?</h3>
+                <p>Sí, utilizamos plataformas reconocidas como PayPal y DonorBox para garantizar la seguridad de tus
+                    aportes.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Mi donación es deducible de impuestos?</h3>
+                <p>Dependiendo de tu país, podrías deducir tu donación. Consulta con un asesor fiscal para más detalles.
+                </p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Puedo donar en moneda local?</h3>
+                <p>Actualmente aceptamos donaciones en pesos dominicanos. Si necesitas otro método, <a
+                        href="contact.html">contáctanos</a>.</p>
+            </div>
+            <p class="faq-link"><a href="#">Ver todas las preguntas frecuentes</a></p>
         </div>
     </section>
 

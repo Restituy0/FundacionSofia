@@ -8,105 +8,280 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
-    <script src="js/modals.js"></script>
+    <script src="../js/modals.js"></script>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        /* Sección de Introducción */
+        /* ------------------ SECCIÓN INTRO ------------------ */
         .intro-section {
             text-align: center;
-            padding: 2rem 0;
+            padding: 4rem 1rem 2rem;
+            background-color:var(--background-color);
         }
 
         .intro-section h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
         }
 
-        .intro-section::after {
-            content: '';
+        .intro-section h1::after {
+            content: "";
             width: 15rem;
             height: 5px;
             background: var(--highlight-color);
             display: block;
             margin: 10px auto;
+            border-radius: 8px;
         }
 
         .intro-section p {
             font-size: 1.2rem;
-            margin: 1rem 0 0;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
         }
 
-        /* Sección de Proyectos */
-        .proyectos-section {
-            padding: 2rem 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .proyectos-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .proyecto-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .proyecto-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .proyecto-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .proyecto-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .proyecto-info h2 {
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
-            color: #333;
-        }
-
-        .proyecto-info p {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn-donate {
-            background-color: #F28C00;
+        .btn-explorar {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            background-color: var(--primary-color);
             color: white;
-            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 50px;
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
 
+        .btn-explorar:hover {
+            background-color: var(--highlight-color);
+        }
+
+        /* ------------------ SECCIÓN IMPACTO ------------------ */
+        .impacto-section {
+            background-color: var(--background-color);
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .impacto-section h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .impacto-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        strong { 
+            color: var(--secondary-color);
+        }
+
+        .impacto-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style: none;
+            font-size: 1.2rem;
+        }
+
+        /* ------------------ FILTROS ------------------ */
+        .filtro-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .filter-btn {
+            background: #eee;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* ------------------ GALERÍA DE PROYECTOS ------------------ */
+        .proyectos-section {
+            padding: 3rem 1rem;
+            background: var(--background-color);
+        }
+
+        .proyectos-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .proyecto-card {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 340px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proyecto-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .proyecto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Estado visual sobre la imagen */
+        .estado {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .estado.proximamente {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .estado.en-proceso {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .estado.finalizado,
+        .estado.completado {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .proyecto-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.8rem;
+            text-align: center;
+        }
+
+        .proyecto-info h2 {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+        }
+
+        .proyecto-info p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Botones */
+        .btn-donate,
+        .btn-more {
+            display: inline-block;
+            margin: 0.3rem 0.4rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-donate {
+            background-color: #f28c00;
+            color: white;
+        }
+
         .btn-donate:hover {
-            background-color: #F7B32B;
+            background-color: #f7b32b;
+        }
+
+        .btn-more {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-more:hover {
+            background-color: #a93226;
+        }
+
+        /* ------------------ INVITACIÓN FINAL ------------------ */
+        .cta-apoyo-section {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .cta-apoyo-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-apoyo-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-apoyar {
+            display: inline-block;
+            background-color: #f7b32b;
+            color: #333;
+            font-weight: bold;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-apoyar:hover {
+            background-color: #f9d976;
+        }
+
+        /* ------------------ RESPONSIVE ------------------ */
+        @media (max-width: 768px) {
+            .proyectos-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .impacto-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .intro-section h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -141,42 +316,68 @@
             </ul>
         </nav>
     </header>
-    
-    <!-- Sección de Introducción -->
+
+    <!-- Hero Introductorio -->
     <section id="introduccion-proyectos" class="intro-section">
         <div class="container">
-            <h1>Nuestros Proyectos</h1>
-            <p>Conoce los proyectos que hemos realizado y los que están por venir. Tu apoyo es fundamental para hacer
-                realidad estas iniciativas.</p>
+            <h1>Impulsando el cambio a través de nuestros proyectos</h1>
+            <p>
+                Cada iniciativa refleja nuestro compromiso con una sociedad más justa,
+                saludable y educada. Explora los proyectos que hemos realizado y descubre cómo puedes ser parte del
+                próximo.
+            </p>
+            <a href="#projects-container" class="btn-explorar">Explorar Proyectos</a>
         </div>
     </section>
 
-    <!-- Sección de Proyectos -->
-    <section id="projects-container" class="proyectos-section">
-        <ul class="proyectos-list">
-            <!-- Ejemplo de un proyecto -->
-            <!-- 
-            <li class="proyecto-card">
-                <img src="../img/p1.jpg" alt="Proyecto 1">
-                <div class="proyecto-info">
-                    <h2>Proyecto Educativo en La Vega</h2>
-                    <p>Brindamos acceso a educación de calidad a 200 niños en una comunidad rural.</p>
-                    <a href="#donaciones" class="btn-donate">Contribuye Ahora</a>
-                </div>
-            </li>
+    <div>
+        <hr>
+    </div>
 
-            <li class="proyecto-card">
-                <img src="../img/p2.jpg" alt="Proyecto 2">
-                <div class="proyecto-info">
-                    <h2>Centro de Salud en Santiago</h2>
-                    <p>Inauguramos un nuevo centro de salud que ofrece servicios médicos esenciales a más de 500 familias.</p>
-                    <a href="#donaciones" class="btn-donate">Contribuye Ahora</a>
-                </div>
-            </li>
-            -->
-        </ul>
-        <h2 id="no-projects-message" style="text-align: center;">NO HAY PROYECTOS DISPONIBLES</h2>
+    <!-- Sección de Logros o Proyectos Destacados -->
+    <section id="proyectos-impacto" class="impacto-section">
+        <div class="container">
+            <h2>+30 proyectos en todo el país</h2>
+            <p>
+                Gracias a tu apoyo, hemos transformado vidas en áreas clave como educación,
+                salud y desarrollo comunitario.
+            </p>
+            <ul class="impacto-stats">
+                <li><strong>+10,000</strong> personas beneficiadas</li>
+                <li><strong>15</strong> escuelas fortalecidas</li>
+                <li><strong>5</strong> centros de salud construidos</li>
+            </ul>
+        </div>
     </section>
+
+    <!-- Filtros de Categoría (se llenan dinámicamente con JS) -->
+    <section id="filtro-categorias">
+        <div class="filtro-container">
+            <!-- Botones de filtros serán generados aquí -->
+        </div>
+    </section>
+
+    <!-- Galería de Proyectos -->
+    <section id="projects-container" class="proyectos-section">
+        <ul class="proyectos-list"></ul>
+        <h2 id="no-projects-message" style="text-align: center; display: none;">
+            NO HAY PROYECTOS DISPONIBLES
+        </h2>
+    </section>
+
+    <!-- Invitación Final -->
+    <section id="invitacion-apoyo" class="cta-apoyo-section">
+        <div class="container">
+            <h2>¡Tu participación puede cambiar vidas!</h2>
+            <p>
+                Cada aporte suma. Únete como voluntario, difunde nuestros proyectos o realiza una contribución para que
+                sigamos construyendo un futuro mejor.
+            </p>
+            <a href="donate.html" class="btn-apoyar">Apoyar un Proyecto</a>
+        </div>
+    </section>
+
+
 
     <!-- Footer -->
     <footer id="footer">
@@ -236,94 +437,133 @@
 
     <script>
         // URL de la API de Google Sheets
-        const sheetID = '182Mc52g86T-wurWKcDCTZ2ll-SWq25WUlBbuxVOQjjk';
+        const sheetID = '1xS-cmsoves7NSB1wlqFyyejReRD_yDnsi3vCGyU9mrE';
         const apiKey = 'AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28';
         const sheetName = 'Proyectos';
 
-        // Ajustar el rango para abarcar más filas, por ejemplo hasta la fila 1000
-        const range = `${sheetName}!A1:D1000`;
-
         const proxyUrl = 'https://api.allorigins.win/get?url=';
-        const url = `${proxyUrl}${encodeURIComponent(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${range}?key=${apiKey}`)}`;
+        const url = `${proxyUrl}${encodeURIComponent(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}?key=${apiKey}`)}`;
 
         // Hacer la solicitud
         fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Respuesta completa:", data); // Ver qué devuelve el proxy
-                const jsonData = JSON.parse(data.contents); // Convertir el contenido JSON
-                console.log("Datos extraídos:", jsonData);
-
-                if (!jsonData.values) {
-                    throw new Error('No se encontraron datos en la hoja de cálculo');
-                }
-
+            .then((res) => res.json())
+            .then((data) => {
+                const jsonData = JSON.parse(data.contents);
+                if (!jsonData.values) throw new Error("Datos vacíos");
                 renderProjects(jsonData.values);
             })
-            .catch(error => console.error('Error al obtener los datos:', error));
-        // fetch(url)
-        //   .then(response => {
-        //     if (!response.ok) {
-        //       throw new Error('Error en la respuesta de la API');
-        //     }
-        //     return response.json();
-        //   })
-        //   .then(data => {
-        //     const projects = data.values;
-        //     if (!projects) {
-        //       throw new Error('No se encontraron datos en la hoja de cálculo');
-        //     }
+            .catch((err) => console.error("Error cargando proyectos:", err));
 
-        //     // Elimina filas vacías que podrían estar después del último proyecto
-        //     const filteredProjects = projects.filter(row => row.some(cell => cell.trim() !== ''));
+        function renderProjects(data) {
+            const container = document.querySelector(".proyectos-list");
+            const noProjects = document.getElementById("no-projects-message");
+            const filtroContainer = document.querySelector(".filtro-container");
 
-        //     renderProjects(filteredProjects);
-        //   })
-        //   .catch(error => console.error('Error al obtener los datos:', error));
+            if (!container || !filtroContainer) return;
 
-        // Función para renderizar los proyectos
-        function renderProjects(projects) {
-            const projectContainer = document.querySelector('.proyectos-list');
-            const noProjectsMessage = document.getElementById('no-projects-message');
+            const headers = data[0];
+            const rows = data.slice(1);
 
-            if (!projectContainer) {
-                console.error('No se encontró el contenedor de proyectos');
+            if (rows.length === 0) {
+                noProjects.style.display = "block";
                 return;
             }
 
-            // Limpiar cualquier contenido previo
-            projectContainer.innerHTML = '';
+            noProjects.style.display = "none";
 
-            if (projects.length <= 1) { // Si solo hay el encabezado o está vacío
-                noProjectsMessage.style.display = 'block';
-            } else {
-                noProjectsMessage.style.display = 'none';
+            const categoriasSet = new Set();
 
-                projects.forEach((project, index) => {
-                    if (index === 0) return; // Ignorar la primera fila si es el encabezado
+            rows.forEach((row) => {
+                try {
+                    const rowData = {};
+                    headers.forEach((h, i) => {
+                        rowData[h.trim().toLowerCase()] = row[i] || "";
+                    });
 
-                    const [title, description, date, imageUrl] = project;
+                    const {
+                        titulo = "Sin título",
+                        descripcion = "Sin descripción",
+                        fecha = "No especificada",
+                        categoria = "Sin categoría",
+                        estado = "Sin estado",
+                        imagen = "https://via.placeholder.com/320x180?text=Sin+imagen",
+                        linkvideo = "",
+                        linkinforme = "",
+                    } = rowData;
 
-                    // Crear el HTML para cada proyecto
-                    const projectHTML = `
-        <li class="proyecto-card">
-          <img src="${imageUrl}" alt="${title}">
-          <div class="proyecto-info">
-            <h2>${title}</h2>
-            <p>${description}</p>
-            <p>${date}</p>
-            <a href="../sections/donate.html" class="btn-donate">Apoyar Aqui</a>
-          </div>
-        </li>
-      `;
+                    const estadoClass = (estado || "sin-estado").toLowerCase().replace(/\s/g, "-");
 
-                    // Añadirlo al contenedor de proyectos
-                    projectContainer.innerHTML += projectHTML;
-                });
-            }
+                    const card = document.createElement("li");
+                    card.classList.add("proyecto-card");
+                    card.setAttribute("data-categoria", categoria.toLowerCase());
+
+                    card.innerHTML = `
+                        <img src="${imagen}" alt="${titulo}">
+                        <div class="proyecto-info">
+                            <span class="estado ${estadoClass}">${estado}</span>
+                            <h2>${titulo}</h2>
+                            <p>${descripcion}</p>
+                            <p><strong>Fecha:</strong> ${fecha}</p>
+                            <div class="acciones">
+                                <a href="donate.html" class="btn-donate">Apoyar Proyecto</a>
+                                ${linkvideo ? `<a href="${linkvideo}" target="_blank" class="btn-more">Ver video</a>` : ""}
+                                ${linkinforme ? `<a href="${linkinforme}" target="_blank" class="btn-more">Ver informe</a>` : ""}
+                            </div>
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                    categoriasSet.add(categoria.toLowerCase());
+
+                } catch (err) {
+                    console.warn("Error en fila:", row, err);
+                }
+            });
+
+            // Generar botones de filtro dinámicamente
+            filtroContainer.innerHTML = '';
+
+            const btnTodos = document.createElement("button");
+            btnTodos.classList.add("filter-btn", "active");
+            btnTodos.textContent = "Todos";
+            btnTodos.dataset.filter = "todos";
+            filtroContainer.appendChild(btnTodos);
+
+            Array.from(categoriasSet).sort().forEach((cat) => {
+                const btn = document.createElement("button");
+                btn.classList.add("filter-btn");
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                btn.dataset.filter = cat;
+                filtroContainer.appendChild(btn);
+            });
+
+            activarFiltros();
         }
 
+        function activarFiltros() {
+            const botones = document.querySelectorAll(".filter-btn");
+            const cards = document.querySelectorAll(".proyecto-card");
+
+            botones.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    botones.forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    const filtro = btn.dataset.filter;
+
+                    cards.forEach((card) => {
+                        const categoria = card.dataset.categoria;
+                        if (filtro === "todos" || categoria === filtro) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        }
     </script>
+
 </body>
 
 </html>

@@ -4,9 +4,10 @@
     --secondary-color: #F28C00; /* Naranja */
     --accent-color: #F7B32B; /* Amarillo */
     --highlight-color: #D72638; /* Rojo para resaltados */
-    --background-color: #F5F5F5; /* Gris Claro */
-    --submit-color: #25D366 /* Verde Whatsapp */
-    --text-color: #333333; /* Gris Oscuro */
+    --background-color: #F5F5F5; /* Gris Claro para el fondo */
+    --submit-light-color: #25D366; /* Verde Whatsapp para contacto */
+    --submit-color: #20b259; /* Verde claro Whatsapp hover para contacto */
+    --text-color: #333; /* Gris Oscuro para los titulos */
     --btn-text-color: #FFFFFF; /* Blanco */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

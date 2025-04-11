@@ -6,7 +6,7 @@
     <title>Contáctanos | Fundación Sofía Lorenzo</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
-    <script src="js/modals.js"></script>
+    <script src="../js/modals.js"></script>
     <style>
         .contact-container {
             display: flex;
@@ -74,7 +74,7 @@
         }
 
         .contact-form h1 {
-            color: #333;
+            color: var(--title-color);
         }
 
         .form-group {
@@ -84,7 +84,7 @@
 
         .form-group label {
             font-size: 1.1em;
-            color: #333;
+            color: var(--title-color);
             margin-bottom: 8px;
             display: block;
         }
@@ -96,11 +96,11 @@
             border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 1em;
-            color: #333;
+            color: var(--title-color);
         }
 
         .btn-submit {
-            background-color: #25D366;
+            background-color: var(--submit-light-color);
             color: #fff;
             padding: 15px 30px;
             border: none;
@@ -113,13 +113,13 @@
         }
 
         .btn-submit:hover {
-            background-color: #20b259;
+            background-color: var(--submit-color);
         }
 
         /* Card de WhatsApp */
         .whatsapp-card {
             margin: 20px auto;
-            background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+            background: linear-gradient(135deg, var(--submit-light-color) 0%, #128c7e 100%);
             border-radius: 15px;
             color: white;
             padding: 25px;
@@ -154,7 +154,7 @@
 
         .btn-whatsapp {
             background-color: white;
-            color: #25D366;
+            color: var(--submit-light-color);
             text-align: center;
             padding: 10px ;
             border-radius: 10px;
@@ -225,7 +225,7 @@
                 src="https://www.google.com/maps?q=Avenida+Nicol%C3%A1s+de+Ovando+No.+350,+Santo+Domingo&output=embed">
             </iframe>
         </div>
-        <div class="contact-form">
+        <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="contact-form">
             <h1 style="text-align: center;">Dejanos un mensaje</h1>
             <div class="form-group">
                 <label for="nombre">Nombre Completo:</label>
@@ -244,8 +244,10 @@
                 <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Enviar</button>
+            <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/contact.html">
+            <input type="hidden" name="_captcha" value="false">
             </form>
-        </div>
+        </form>
     </div>
 
         <!-- Card de WhatsApp -->
