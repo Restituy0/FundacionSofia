@@ -12,10 +12,9 @@
     <script src="../js/modals.js"></script>
     <style>
         :root {
-            --bg-light: #f9f9f9;
-            --accent: #fff0f6;
             --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
 
         h1 {
             color: var(--text-color);
@@ -242,6 +241,40 @@
             margin: auto;
         }
 
+        /* Diseño de botones Anterior y Siguiente */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-controls button {
+            background-color: #1A73E8;
+            /* Azul institucional */
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-controls button:hover {
+            background-color: #1558b0;
+            transform: translateY(-2px);
+        }
+
+        .pagination-controls button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+
         /* Modal video */
         .video-modal-overlay {
             position: fixed;
@@ -368,6 +401,16 @@
 
         .formas-participar h2 {
             color: var(--background-color);
+        }
+
+        .formas-participar p {
+            color: var(--background-color);
+            transition: transform 0.5s ease, color 0.5s ease;
+        }
+
+        .formas-participar p:hover {
+            transform: scale(1.08, 1.08);
+            color: var(--highlight-color);
         }
 
         .opciones-participar {
@@ -507,6 +550,10 @@
                 </select>
             </div>
             <div id="video-gallery" class="galeria-grid"></div>
+            <div class="pagination-controls">
+                <button id="prevPage" disabled>← Anterior</button>
+                <button id="nextPage">Siguiente →</button>
+            </div>
             <h2 id="no-activities-message" style="display: none;">NO HAY ACTIVIDADES DISPONIBLES</h2>
         </div>
     </section>
@@ -535,6 +582,14 @@
 
     <section class="formas-participar">
         <div class="container">
+            <h2>¿QUIERES VER MAS?</h2>
+            <p><a href="#footer">SIGUENOS EN NUESTRAS REDES SOCIALES</a></p>
+        </div>
+    </section>
+
+    <!-- Seccion Participar - Voluntario y Donar para futuros cambios -->
+    <!-- <section class="formas-participar">
+        <div class="container">
             <h2>¿Te Gustaría Participar?</h2>
             <div class="opciones-participar">
                 <div class="opcion" id="opcion1">
@@ -549,7 +604,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="cierre-cta">
         <div class="container">
@@ -651,6 +706,10 @@
         const apiKey = "AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28";
         const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
         const noActivitiesMessage = document.getElementById('no-activities-message');
+        let currentPage = 0;
+        const itemsPerPage = 4;
+        let globalVideos = []; // Para mantener los datos globalmente
+
 
         async function fetchVideos() {
             try {
@@ -683,56 +742,64 @@
         }
 
         function renderVideos(videos, category = "all") {
+            globalVideos = videos.filter(video => category === "all" || video.categoria === category);
+
+            const start = currentPage * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedVideos = globalVideos.slice(start, end);
+
             const container = document.getElementById("video-gallery");
             container.innerHTML = "";
 
-            videos
-                .filter(video => category === "all" || video.categoria === category)
-                .forEach(video => {
-                    const div = document.createElement("div");
-                    div.classList.add("video-card");
+            paginatedVideos.forEach(video => {
+                const div = document.createElement("div");
+                div.classList.add("video-card");
 
-                    const isYouTube = video.video_url.includes("youtube.com") || video.video_url.includes("youtu.be");
-                    const isVimeo = video.video_url.includes("vimeo.com");
-                    const isTikTok = video.video_url.includes("tiktok.com");
-                    const isInstagram = video.video_url.includes("instagram.com");
-                    const isSocial = isTikTok || isInstagram;
+                const isYouTube = video.video_url.includes("youtube.com") || video.video_url.includes("youtu.be");
+                const isVimeo = video.video_url.includes("vimeo.com");
+                const isTikTok = video.video_url.includes("tiktok.com");
+                const isInstagram = video.video_url.includes("instagram.com");
+                const isSocial = isTikTok || isInstagram;
 
-                    const thumbnail = isYouTube
-                        ? getYouTubeThumbnail(video.video_url)
-                        : isVimeo
-                            ? `https://vumbnail.com/${getVimeoId(video.video_url)}.jpg`
-                            : isTikTok
-                                ? "https://www.tiktok.com/favicon.ico"
-                                : isInstagram
-                                    ? "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                                    : "";
+                const thumbnail = isYouTube
+                    ? getYouTubeThumbnail(video.video_url)
+                    : isVimeo
+                        ? `https://vumbnail.com/${getVimeoId(video.video_url)}.jpg`
+                        : isTikTok
+                            ? "https://www.tiktok.com/favicon.ico"
+                            : isInstagram
+                                ? "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                : "";
 
-                    const embedUrl = isYouTube
-                        ? convertToYouTubeEmbed(video.video_url)
-                        : isVimeo
-                            ? convertToVimeoEmbed(video.video_url)
-                            : video.video_url;
+                const embedUrl = isYouTube
+                    ? convertToYouTubeEmbed(video.video_url)
+                    : isVimeo
+                        ? convertToVimeoEmbed(video.video_url)
+                        : video.video_url;
 
-                    div.innerHTML = `
-                        <div class="video-card-content premium">
-                            <div class="thumbnail-column">
-                                <div class="video-thumbnail-wrapper">
-                                    <img src="${thumbnail}" alt="Miniatura del video" class="video-thumbnail ${isSocial ? "social-thumb" : ""}">
-                                    ${!isSocial ? `<button class="play-button" data-video-url="${embedUrl}">▶</button>` : ""}
-                                </div>
-                            </div>
-                            <div class="info-column">
-                                <span class="category-tag">${video.categoria}</span>
-                                <h3>${video.titulo}</h3>
-                                <p class="descripcion">${video.descripcion}</p>
-                                <p class="fecha">📅 ${video.fecha}</p>
-                                ${isSocial ? `<a href="${embedUrl}" target="_blank" class="social-link">Ver en la plataforma</a>` : ""}
-                            </div>
-                        </div>
-                    `;
-                    container.appendChild(div);
-                });
+                div.innerHTML = `
+            <div class="video-card-content premium">
+                <div class="thumbnail-column">
+                    <div class="video-thumbnail-wrapper">
+                        <img src="${thumbnail}" alt="Miniatura del video" class="video-thumbnail ${isSocial ? "social-thumb" : ""}">
+                        ${!isSocial ? `<button class="play-button" data-video-url="${embedUrl}">▶</button>` : ""}
+                    </div>
+                </div>
+                <div class="info-column">
+                    <span class="category-tag">${video.categoria}</span>
+                    <h3>${video.titulo}</h3>
+                    <p class="descripcion">${video.descripcion}</p>
+                    <p class="fecha">📅 ${video.fecha}</p>
+                    ${isSocial ? `<a href="${embedUrl}" target="_blank" class="social-link">Ver en la plataforma</a>` : ""}
+                </div>
+            </div>
+        `;
+                container.appendChild(div);
+            });
+
+            // Botones de navegación
+            document.getElementById("prevPage").disabled = currentPage === 0;
+            document.getElementById("nextPage").disabled = (currentPage + 1) * itemsPerPage >= globalVideos.length;
 
             setTimeout(() => {
                 document.querySelectorAll(".play-button").forEach(btn => {
@@ -741,8 +808,9 @@
                         openModal(videoUrl);
                     });
                 });
-            }, 500);
+            }, 300);
         }
+
 
         function openModal(videoUrl) {
             const modal = document.createElement("div");
@@ -805,6 +873,21 @@
         }
 
         fetchVideos();
+
+        document.getElementById("prevPage").addEventListener("click", () => {
+            if (currentPage > 0) {
+                currentPage--;
+                renderVideos(globalVideos);
+            }
+        });
+
+        document.getElementById("nextPage").addEventListener("click", () => {
+            if ((currentPage + 1) * itemsPerPage < globalVideos.length) {
+                currentPage++;
+                renderVideos(globalVideos);
+            }
+        });
+
     </script>
 
 

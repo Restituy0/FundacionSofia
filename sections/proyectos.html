@@ -14,7 +14,7 @@
         .intro-section {
             text-align: center;
             padding: 4rem 1rem 2rem;
-            background-color:var(--background-color);
+            background-color: var(--background-color);
         }
 
         .intro-section h1 {
@@ -73,7 +73,7 @@
             margin-bottom: 2rem;
         }
 
-        strong { 
+        strong {
             color: var(--secondary-color);
         }
 
@@ -233,6 +233,39 @@
             background-color: #a93226;
         }
 
+        /* Diseño de botones Anterior y Siguiente */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-controls button {
+            background-color: #1A73E8;
+            /* Azul institucional */
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-controls button:hover {
+            background-color: #1558b0;
+            transform: translateY(-2px);
+        }
+
+        .pagination-controls button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
         /* ------------------ INVITACIÓN FINAL ------------------ */
         .cta-apoyo-section {
             background: var(--primary-color);
@@ -360,6 +393,10 @@
     <!-- Galería de Proyectos -->
     <section id="projects-container" class="proyectos-section">
         <ul class="proyectos-list"></ul>
+        <div class="pagination-controls">
+            <button id="prevPage" disabled>← Anterior</button>
+            <button id="nextPage">Siguiente →</button>
+        </div>
         <h2 id="no-projects-message" style="text-align: center; display: none;">
             NO HAY PROYECTOS DISPONIBLES
         </h2>
@@ -440,9 +477,11 @@
         const sheetID = '1xS-cmsoves7NSB1wlqFyyejReRD_yDnsi3vCGyU9mrE';
         const apiKey = 'AIzaSyDUEdZOUzqQ6NustHMfai-vdTnJK__uV28';
         const sheetName = 'Proyectos';
-
         const proxyUrl = 'https://api.allorigins.win/get?url=';
         const url = `${proxyUrl}${encodeURIComponent(`https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}?key=${apiKey}`)}`;
+        let currentPage = 0;
+        const itemsPerPage = 6;
+        let globalVideos = []; // Para mantener los datos globalmente
 
         // Hacer la solicitud
         fetch(url)
@@ -472,56 +511,56 @@
             noProjects.style.display = "none";
 
             const categoriasSet = new Set();
+            const proyectos = [];
 
             rows.forEach((row) => {
-                try {
-                    const rowData = {};
-                    headers.forEach((h, i) => {
-                        rowData[h.trim().toLowerCase()] = row[i] || "";
-                    });
+                const rowData = {};
+                headers.forEach((h, i) => {
+                    rowData[h.trim().toLowerCase()] = row[i] || "";
+                });
 
-                    const {
-                        titulo = "Sin título",
-                        descripcion = "Sin descripción",
-                        fecha = "No especificada",
-                        categoria = "Sin categoría",
-                        estado = "Sin estado",
-                        imagen = "https://via.placeholder.com/320x180?text=Sin+imagen",
-                        linkvideo = "",
-                        linkinforme = "",
-                    } = rowData;
+                const {
+                    titulo = "Sin título",
+                    descripcion = "Sin descripción",
+                    fecha = "No especificada",
+                    categoria = "Sin categoría",
+                    estado = "Sin estado",
+                    imagen = "https://via.placeholder.com/320x180?text=Sin+imagen",
+                    linkvideo = "",
+                    linkinforme = "",
+                } = rowData;
 
-                    const estadoClass = (estado || "sin-estado").toLowerCase().replace(/\s/g, "-");
+                const estadoClass = (estado || "sin-estado").toLowerCase().replace(/\s/g, "-");
 
-                    const card = document.createElement("li");
-                    card.classList.add("proyecto-card");
-                    card.setAttribute("data-categoria", categoria.toLowerCase());
+                const card = document.createElement("li");
+                card.classList.add("proyecto-card");
+                card.setAttribute("data-categoria", categoria.toLowerCase());
 
-                    card.innerHTML = `
-                        <img src="${imagen}" alt="${titulo}">
-                        <div class="proyecto-info">
-                            <span class="estado ${estadoClass}">${estado}</span>
-                            <h2>${titulo}</h2>
-                            <p>${descripcion}</p>
-                            <p><strong>Fecha:</strong> ${fecha}</p>
-                            <div class="acciones">
-                                <a href="donate.html" class="btn-donate">Apoyar Proyecto</a>
-                                ${linkvideo ? `<a href="${linkvideo}" target="_blank" class="btn-more">Ver video</a>` : ""}
-                                ${linkinforme ? `<a href="${linkinforme}" target="_blank" class="btn-more">Ver informe</a>` : ""}
-                            </div>
-                        </div>
-                    `;
+                card.innerHTML = `
+            <img src="${imagen}" alt="${titulo}">
+            <div class="proyecto-info">
+                <span class="estado ${estadoClass}">${estado}</span>
+                <h2>${titulo}</h2>
+                <p>${descripcion}</p>
+                <p><strong>Fecha:</strong> ${fecha}</p>
+                <div class="acciones">
+                    <a href="donate.html" class="btn-donate">Apoyar Proyecto</a>
+                    ${linkvideo ? `<a href="${linkvideo}" target="_blank" class="btn-more">Ver video</a>` : ""}
+                    ${linkinforme ? `<a href="${linkinforme}" target="_blank" class="btn-more">Ver informe</a>` : ""}
+                </div>
+            </div>
+        `;
 
-                    container.appendChild(card);
-                    categoriasSet.add(categoria.toLowerCase());
-
-                } catch (err) {
-                    console.warn("Error en fila:", row, err);
-                }
+                proyectos.push(card);
+                categoriasSet.add(categoria.toLowerCase());
             });
 
-            // Generar botones de filtro dinámicamente
-            filtroContainer.innerHTML = '';
+            // Guardar globalmente para paginar y filtrar
+            globalVideos = proyectos;
+            renderPaginatedProjects();
+
+            // Crear botones de filtro
+            filtroContainer.innerHTML = "";
 
             const btnTodos = document.createElement("button");
             btnTodos.classList.add("filter-btn", "active");
@@ -540,28 +579,52 @@
             activarFiltros();
         }
 
+        function renderPaginatedProjects() {
+            const container = document.querySelector(".proyectos-list");
+            container.innerHTML = "";
+
+            const filtroActivo = document.querySelector(".filter-btn.active")?.dataset.filter || "todos";
+            const filtrados = globalVideos.filter((card) => {
+                const categoria = card.dataset.categoria;
+                return filtroActivo === "todos" || categoria === filtroActivo;
+            });
+
+            const start = currentPage * itemsPerPage;
+            const end = start + itemsPerPage;
+            const visibles = filtrados.slice(start, end);
+
+            visibles.forEach((card) => container.appendChild(card));
+
+            // Botones de navegación
+            document.getElementById("prevPage").disabled = currentPage === 0;
+            document.getElementById("nextPage").disabled = end >= filtrados.length;
+        }
+
         function activarFiltros() {
             const botones = document.querySelectorAll(".filter-btn");
-            const cards = document.querySelectorAll(".proyecto-card");
 
             botones.forEach((btn) => {
                 btn.addEventListener("click", () => {
                     botones.forEach((b) => b.classList.remove("active"));
                     btn.classList.add("active");
-
-                    const filtro = btn.dataset.filter;
-
-                    cards.forEach((card) => {
-                        const categoria = card.dataset.categoria;
-                        if (filtro === "todos" || categoria === filtro) {
-                            card.style.display = "block";
-                        } else {
-                            card.style.display = "none";
-                        }
-                    });
+                    currentPage = 0;
+                    renderPaginatedProjects();
                 });
             });
         }
+
+        document.getElementById("prevPage").addEventListener("click", () => {
+            if (currentPage > 0) {
+                currentPage--;
+                renderPaginatedProjects();
+            }
+        });
+
+        document.getElementById("nextPage").addEventListener("click", () => {
+            currentPage++;
+            renderPaginatedProjects();
+        });
+
     </script>
 
 </body>
