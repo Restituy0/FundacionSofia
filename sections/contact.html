@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
+        /* ------------------ CONTACTO ------------------ */
         .contact-container {
             display: flex;
             align-items: center;
@@ -18,12 +21,14 @@
             padding: 40px 20px;
             text-align: center;
         }
+
         .contact-header {
             font-size: 2.5em;
             font-weight: bold;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
+
         .contact-header::after {
             content: '';
             width: 100px;
@@ -32,21 +37,26 @@
             display: block;
             margin: 10px auto;
         }
+
         .contact-info {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
         }
+
         .contact-item {
             display: flex;
             align-items: center;
             gap: 15px;
             font-size: 1.2rem;
         }
+
         .contact-item img {
             width: 15px;
         }
+
+        /* ------------------ MAPA ------------------ */
         .map-container {
             width: 800px;
             height: 350px;
@@ -60,10 +70,12 @@
             transition: transform 0.3s ease;
         }
 
-        .map-container:hover{
+        .map-container:hover {
             transform: scale(1.01, 1.01);
             box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
+
+        /* ------------------ FORMULARIO ------------------ */
         .contact-form {
             background-color: #ffffff;
             border-radius: 15px;
@@ -116,7 +128,7 @@
             background-color: var(--submit-color);
         }
 
-        /* Card de WhatsApp */
+        /* ------------------ CONTACTO WHATSAPP ------------------ */
         .whatsapp-card {
             margin: 20px auto;
             background: linear-gradient(135deg, var(--submit-light-color) 0%, #128c7e 100%);
@@ -156,7 +168,7 @@
             background-color: white;
             color: var(--submit-light-color);
             text-align: center;
-            padding: 10px ;
+            padding: 10px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
@@ -168,6 +180,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -198,70 +211,72 @@
         </nav>
     </header>
 
-    <div class="contact-container">
-        <h2 class="contact-header">Contáctanos</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <img src="../img/location-icon.svg" alt="Ubicación">
-                <span>Avenida Nicolás de Ovando No. 350, Cristo Rey, Santo Domingo, D.N.</span>
+    <main>
+        <section class="contact-container">
+            <!-- Header -->
+            <h2 class="contact-header">Contáctanos</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="../img/location-icon.svg" alt="Ubicación">
+                    <span>Avenida Nicolás de Ovando No. 350, Cristo Rey, Santo Domingo, D.N.</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/phone-icon.svg" alt="Teléfono">
+                    <span>809-745-6019 | 849-263-2939</span>
+                </div>
+                <div class="contact-item">
+                    <img src="../img/email-icon.svg" alt="Email">
+                    <span>contacto@fundacionsofialorenzo.org</span>
+                </div>
             </div>
-            <div class="contact-item">
-                <img src="../img/phone-icon.svg" alt="Teléfono">
-                <span>809-745-6019 | 849-263-2939</span>
+            <!-- Mapa -->
+            <div class="map-container">
+                <iframe width="100%" height="100%" frameborder="0" style="border-radius: 10px;" allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Avenida+Nicol%C3%A1s+de+Ovando+No.+350,+Santo+Domingo&output=embed">
+                </iframe>
             </div>
-            <div class="contact-item">
-                <img src="../img/email-icon.svg" alt="Email">
-                <span>contacto@fundacionsofialorenzo.org</span>
-            </div>
-        </div>
-        <div class="map-container">
-            <iframe
-                width="100%"
-                height="100%"
-                frameborder="0"
-                style="border-radius: 10px;"
-                allowfullscreen=""
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Avenida+Nicol%C3%A1s+de+Ovando+No.+350,+Santo+Domingo&output=embed">
-            </iframe>
-        </div>
-        <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="contact-form">
-            <h1 style="text-align: center;">Dejanos un mensaje</h1>
-            <div class="form-group">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="correo">Correo Electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
-            </div>
-            <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Enviar</button>
-            <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/contact.html">
-            <input type="hidden" name="_captcha" value="false">
+            <!-- Formulario de Contacto -->
+            <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="contact-form">
+                <h1 style="text-align: center;">Dejanos un mensaje</h1>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+                <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/contact.html">
+                <input type="hidden" name="_captcha" value="false">
             </form>
-        </form>
-    </div>
+        </section>
 
         <!-- Card de WhatsApp -->
-    <div class="whatsapp-card">
-        <div class="whatsapp-icon">
-            <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+        <div class="whatsapp-card">
+            <div class="whatsapp-icon">
+                <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+            </div>
+            <div class="whatsapp-info">
+                <h3>Contáctanos en WhatsApp</h3>
+                <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+                <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
+                    class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
+            </div>
         </div>
-        <div class="whatsapp-info">
-            <h3>Contáctanos en WhatsApp</h3>
-            <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-            <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
-                class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
-        </div>
-    </div>
+    </main>
+
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
     <footer id="footer">
@@ -319,4 +334,5 @@
         </div>
     </div>
 </body>
+
 </html>

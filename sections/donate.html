@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
-        /* Estilo general para la página de Donar */
         a {
             color: var(--secondary-color);
             text-decoration: none;
         }
+
+        /* ------------------ INTRO ------------------ */
         .donar-intro-section {
             background: #f8f9fa;
             text-align: center;
@@ -33,6 +35,8 @@
             margin: 0 auto;
             color: #555;
         }
+
+        /* ------------------ DONACIONES Y TRANSFERENCIAS ------------------ */
 
         .donaciones-section {
             background: #ffffff;
@@ -97,7 +101,7 @@
             color: #004080;
         }
 
-        /* Sección: Únete Como Voluntario */
+        /* ------------------ UNETE COMO VOLUNTARIO ------------------ */
         .volunteer-call-to-action {
             background: var(--secondary-color);
             color: var(--btn-text-color);
@@ -131,6 +135,8 @@
         .btn-volunteer:hover {
             background-color: var(--highlight-color);
         }
+
+        /* ------------------ FAQ ------------------ */
 
         .faq-donaciones-section {
             background: #fdfdfd;
@@ -211,102 +217,109 @@
         </nav>
     </header>
 
-    <!-- Sección 1: Introducción -->
-    <section id="donar-intro" class="donar-intro-section">
-        <div class="container">
-            <h1>Tu Generosidad Cambia Vidas</h1>
-            <p>En la Fundación Sofía Lorenzo, cada donación representa una oportunidad: para alimentar, educar, sanar y
-                transformar. Con tu ayuda, seguimos sembrando esperanza donde más se necesita.</p>
-        </div>
-    </section>
+    <main>
+        <!-- Introducción -->
+        <section id="donar-intro" class="donar-intro-section">
+            <div class="container">
+                <h1>Tu Generosidad Cambia Vidas</h1>
+                <p>En la Fundación Sofía Lorenzo, cada donación representa una oportunidad: para alimentar, educar,
+                    sanar y
+                    transformar. Con tu ayuda, seguimos sembrando esperanza donde más se necesita.</p>
+            </div>
+        </section>
 
-    <!-- Sección 2: Métodos para Donar -->
-    <section id="donaciones" class="donaciones-section">
-        <div class="container">
-            <div class="donaciones-columns">
-                <!-- Columna 1: Donaciones en Línea -->
-                <div class="donaciones-form-column">
-                    <h2>Haz tu Donación</h2>
-                    <p>Tu aporte puede marcar la diferencia. Escoge la opción que más te convenga:</p>
+        <!-- Métodos para Donar -->
+        <section id="donaciones" class="donaciones-section">
+            <div class="container">
+                <div class="donaciones-columns">
+                    <!-- Columna 1: Donaciones en Línea -->
+                    <div class="donaciones-form-column">
+                        <h2>Haz tu Donación</h2>
+                        <p>Tu aporte puede marcar la diferencia. Escoge la opción que más te convenga:</p>
 
-                    <div class="donate-paypal">
-                        <!-- <h3>Donar con PayPal</h3> -->
-                        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-                            <input type="hidden" name="business" value="TU_CORREO@DOMINIO.COM" />
-                            <input type="hidden" name="no_recurring" value="0" />
-                            <input type="hidden" name="item_name" value="Donación a Fundación Sofía Lorenzo" />
-                            <input type="hidden" name="currency_code" value="USD" />
-                            <button type="submit" class="btn-donate">Donar con PayPal</button>
-                        </form>
+                        <div class="donate-paypal">
+                            <!-- <h3>Donar con PayPal</h3> -->
+                            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                                <input type="hidden" name="business" value="TU_CORREO@DOMINIO.COM" />
+                                <input type="hidden" name="no_recurring" value="0" />
+                                <input type="hidden" name="item_name" value="Donación a Fundación Sofía Lorenzo" />
+                                <input type="hidden" name="currency_code" value="USD" />
+                                <button type="submit" class="btn-donate">Donar con PayPal</button>
+                            </form>
+                        </div>
+
+                        <div class="donate-donorbox">
+                            <h3>Donar con Tarjeta (DonorBox)</h3>
+                            <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+                            <iframe src="https://donorbox.org/embed/TU_ID_DE_CAMPAÑA" height="685px" width="100%"
+                                style="max-width: 500px; min-width: 310px;" seamless="seamless" name="donorbox"
+                                frameborder="0" scrolling="no" allowpaymentrequest></iframe>
+                        </div>
                     </div>
 
-                    <div class="donate-donorbox">
-                        <h3>Donar con Tarjeta (DonorBox)</h3>
-                        <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-                        <iframe src="https://donorbox.org/embed/TU_ID_DE_CAMPAÑA" height="685px" width="100%"
-                            style="max-width: 500px; min-width: 310px;" seamless="seamless" name="donorbox"
-                            frameborder="0" scrolling="no" allowpaymentrequest></iframe>
+                    <!-- Columna 2: Transferencias Bancarias -->
+                    <div class="transferencias-column">
+                        <h2>Transferencia Bancaria</h2>
+                        <p>También puedes colaborar con una transferencia directa a nuestras cuentas:</p>
+
+                        <div class="bank-details">
+                            <h3>Banco Popular</h3>
+                            <p><strong>Cuenta:</strong> 1234-5678-9012</p>
+                            <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
+                        </div>
+
+                        <div class="bank-details">
+                            <h3>Banco BHD León</h3>
+                            <p><strong>Cuenta:</strong> 2345-6789-0123</p>
+                            <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
+                        </div>
+
+                        <div class="bank-details">
+                            <h3>Banco Banreservas</h3>
+                            <p><strong>Cuenta:</strong> 3456-7890-1234</p>
+                            <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Columna 2: Transferencias Bancarias -->
-                <div class="transferencias-column">
-                    <h2>Transferencia Bancaria</h2>
-                    <p>También puedes colaborar con una transferencia directa a nuestras cuentas:</p>
+        <!-- Únete Como Voluntario -->
+        <section id="hazte-voluntario" class="volunteer-call-to-action">
+            <div class="container">
+                <h2>¿Quieres Hacer Aun Mas?</h2>
+                <p>Conviértete en voluntario y ayuda no solo con tus recursos, sino también con tu tiempo y corazón.</p>
+                <a href="sections/volunteer.html" class="btn-volunteer">Hazte Voluntario</a>
+            </div>
+        </section>
 
-                    <div class="bank-details">
-                        <h3>Banco Popular</h3>
-                        <p><strong>Cuenta:</strong> 1234-5678-9012</p>
-                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
-                    </div>
-
-                    <div class="bank-details">
-                        <h3>Banco BHD León</h3>
-                        <p><strong>Cuenta:</strong> 2345-6789-0123</p>
-                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
-                    </div>
-
-                    <div class="bank-details">
-                        <h3>Banco Banreservas</h3>
-                        <p><strong>Cuenta:</strong> 3456-7890-1234</p>
-                        <p><strong>Titular:</strong> Fundación Sofía Lorenzo</p>
-                    </div>
+        <!-- FAQ Donaciones -->
+        <section id="faq-donaciones" class="faq-donaciones-section">
+            <div class="container">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-item">
+                    <h3>¿Es seguro donar por esta página?</h3>
+                    <p>Sí, utilizamos plataformas reconocidas como PayPal y DonorBox para garantizar la seguridad de tus
+                        aportes.</p>
                 </div>
+                <div class="faq-item">
+                    <h3>¿Mi donación es deducible de impuestos?</h3>
+                    <p>Dependiendo de tu país, podrías deducir tu donación. Consulta con un asesor fiscal para más
+                        detalles.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Puedo donar en moneda local?</h3>
+                    <p>Actualmente aceptamos donaciones en pesos dominicanos. Si necesitas otro método, <a
+                            href="contact.html">contáctanos</a>.</p>
+                </div>
+                <p class="faq-link"><a href="#">Ver todas las preguntas frecuentes</a></p>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Sección 3: Únete Como Voluntario -->
-    <section id="hazte-voluntario" class="volunteer-call-to-action">
-        <div class="container">
-            <h2>¿Quieres Hacer Aun Mas?</h2>
-            <p>Conviértete en voluntario y ayuda no solo con tus recursos, sino también con tu tiempo y corazón.</p> 
-            <a href="sections/volunteer.html" class="btn-volunteer">Hazte Voluntario</a>
-        </div>
-    </section>
-
-    <!-- Sección 4: FAQ Donaciones -->
-    <section id="faq-donaciones" class="faq-donaciones-section">
-        <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-item">
-                <h3>¿Es seguro donar por esta página?</h3>
-                <p>Sí, utilizamos plataformas reconocidas como PayPal y DonorBox para garantizar la seguridad de tus
-                    aportes.</p>
-            </div>
-            <div class="faq-item">
-                <h3>¿Mi donación es deducible de impuestos?</h3>
-                <p>Dependiendo de tu país, podrías deducir tu donación. Consulta con un asesor fiscal para más detalles.
-                </p>
-            </div>
-            <div class="faq-item">
-                <h3>¿Puedo donar en moneda local?</h3>
-                <p>Actualmente aceptamos donaciones en pesos dominicanos. Si necesitas otro método, <a
-                        href="contact.html">contáctanos</a>.</p>
-            </div>
-            <p class="faq-link"><a href="#">Ver todas las preguntas frecuentes</a></p>
-        </div>
-    </section>
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
     <footer id="footer">

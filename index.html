@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="icon" href="img/logo.png">
     <style>
-        /*** INICIO ***/
         a {
             color: var(--secondary-color);
             text-decoration: none;
         }
+
+        /* ------------------ INTRO ------------------ */
 
         .start-section {
             background-color: var(--primary-color);
@@ -75,7 +76,7 @@
             background-color: var(--highlight-color);
         }
 
-        /*Seccion: Cifras Clave*/
+        /* ------------------ CIFRAS CLAVE ------------------ */
         .cifras-section {
             text-align: center;
             padding: 50px 0;
@@ -104,7 +105,7 @@
             box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
         }
 
-        /* Sección: Historias de Impacto */
+        /* ------------------ IMPACTO ------------------ */
         .historias-impacto-section {
             background: #fff;
             padding: 20px;
@@ -178,33 +179,7 @@
             background-color: var(--highlight-color);
         }
 
-        @media (min-width: 768px) {
-            .historias-gallery {
-                flex-direction: row;
-                justify-content: center;
-
-            }
-
-            .historia-item {
-                flex-direction: row;
-                align-items: center;
-                text-align: left;
-
-            }
-
-            .historia-image,
-            .historia-content {
-                flex: 1;
-
-            }
-
-            .historia-image {
-                margin-right: 20px;
-
-            }
-        }
-
-        /* Sección: ¿Por Qué Donar? */
+        /* ------------------ ¿POR QUE DONAR?------------------ */
         .porque-donar-section {
             background: #fff;
             padding: 60px 20px;
@@ -255,7 +230,7 @@
             color: var(--text-color);
         }
 
-        /* Sección: Únete Como Voluntario */
+        /* ------------------ UNETE COMO VOLUNTARIO ------------------ */
         .volunteer-call-to-action {
             background-image: linear-gradient(to right, #0383f3, #004B8D);
             color: var(--btn-text-color);
@@ -290,7 +265,7 @@
             background-color: white;
         }
 
-        /* Sección: Impacto de Tu Donación */
+        /* ------------------ IMPACTO DE TU DONACION ------------------ */
         .impacto-donacion-section {
             background: #f9f9f9;
             padding: 40px 20px;
@@ -380,7 +355,7 @@
             background-color: var(--highlight-color);
         }
 
-        /* Seccion: FAQ */
+        /* ------------------ FAQ ------------------ */
         .faq-section {
             padding: 40px 20px;
             background: #f9f9f9;
@@ -426,27 +401,32 @@
             display: block;
         }
 
-        /* Botón Volver Arriba */
-        #btnVolverArriba {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, opacity 0.3s;
-        }
+        /* ------------------ RESPONSIVE ------------------ */
 
-        #btnVolverArriba:hover {
-            background-color: var(--highlight-color);
-            opacity: 0.8;
+        @media (min-width: 768px) {
+            .historias-gallery {
+                flex-direction: row;
+                justify-content: center;
 
+            }
+
+            .historia-item {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+
+            }
+
+            .historia-image,
+            .historia-content {
+                flex: 1;
+
+            }
+
+            .historia-image {
+                margin-right: 20px;
+
+            }
         }
     </style>
 </head>
@@ -478,7 +458,7 @@
     </header>
 
     <main>
-        <!-- Sección de Inicio -->
+        <!-- Inicio -->
         <section id="inicio" class="start-section">
             <div class="start-content">
                 <div class="start-logo">
@@ -490,7 +470,7 @@
             </div>
         </section>
 
-        <!-- Sección: Cifras Clave -->
+        <!-- Cifras Clave -->
         <section id="cifras-clave" class="cifras-section">
             <div class="container">
                 <div class="cifras-grid">
@@ -501,7 +481,7 @@
             </div>
         </section>
 
-        <!-- Sección: Historias de Impacto -->
+        <!-- Historias de Impacto -->
         <section id="historias-impacto" class="historias-impacto-section">
             <div class="container">
                 <h2>Cambiando Vidas</h2>
@@ -510,7 +490,6 @@
                 <div class="historias-gallery">
                     <div class="historia-item">
                         <div class="historia-image">
-                            <!-- Placeholder: Inserta imagen representativa de la historia 1 -->
                             <img src="img/historia1.jpg" alt="Historia 1">
                         </div>
                         <div class="historia-content">
@@ -522,7 +501,6 @@
                     </div>
                     <div class="historia-item">
                         <div class="historia-image">
-                            <!-- Placeholder: Inserta imagen representativa de la historia 2 -->
                             <img src="img/historia2.jpg" alt="Historia 2">
                         </div>
                         <div class="historia-content">
@@ -535,7 +513,7 @@
             </div>
         </section>
 
-        <!-- Sección: ¿Por Qué Donar? (Tarjetas informativas) -->
+        <!-- ¿Por Qué Donar? -->
         <section id="porque-donar" class="porque-donar-section">
             <hr>
             <div class="container">
@@ -565,7 +543,7 @@
             </div>
         </section>
 
-        <!-- Sección: Únete Como Voluntario -->
+        <!-- Únete Como Voluntario -->
         <section id="hazte-voluntario" class="volunteer-call-to-action">
             <div class="container">
                 <h2>¿Quieres Hacer la Diferencia?</h2>
@@ -575,7 +553,7 @@
             </div>
         </section>
 
-        <!-- Sección: Impacto de Tu Donación -->
+        <!-- Impacto de Tu Donación -->
         <section id="impacto-donacion" class="impacto-donacion-section">
             <div class="container">
                 <h2>Nuestro trabajo</h2>
@@ -609,7 +587,7 @@
             </div>
         </section>
 
-        <!-- Sección: Preguntas Clave -->
+        <!-- Preguntas Clave -->
         <section id="preguntas-clave" class="faq-section">
             <hr>
             <div class="faq-container">
@@ -632,6 +610,7 @@
         </section>
     </main>
 
+    <!-- Boton de Volver -->
     <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
@@ -693,23 +672,8 @@
 
     <script src="js/warning.js"></script>
     <script src="js/modals.js"></script>
+    <script src="js/upbtn.js"></script>
     <script>
-        // Mostrar botón cuando el usuario hace scroll hacia abajo
-        window.onscroll = function () { mostrarBoton() };
-
-        function mostrarBoton() {
-            let boton = document.getElementById("btnVolverArriba");
-            if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-                boton.style.display = "block";
-            } else {
-                boton.style.display = "none";
-            }
-        }
-
-        // Función para volver arriba suavemente
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
         // Cargar datos dinámicos desde Google API
         // URL de la API de Google Sheets
         const sheetID = '182Mc52g86T-wurWKcDCTZ2ll-SWq25WUlBbuxVOQjjk';

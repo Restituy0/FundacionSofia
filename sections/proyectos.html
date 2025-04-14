@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
-        /* ------------------ SECCIÓN INTRO ------------------ */
+        /* ------------------ INTRO ------------------ */
         .intro-section {
             text-align: center;
             padding: 4rem 1rem 2rem;
@@ -55,7 +56,7 @@
             background-color: var(--highlight-color);
         }
 
-        /* ------------------ SECCIÓN IMPACTO ------------------ */
+        /* ------------------ IMPACTO ------------------ */
         .impacto-section {
             background-color: var(--background-color);
             text-align: center;
@@ -350,7 +351,7 @@
         </nav>
     </header>
 
-    <!-- Hero Introductorio -->
+    <!-- Introduccion -->
     <section id="introduccion-proyectos" class="intro-section">
         <div class="container">
             <h1>Impulsando el cambio a través de nuestros proyectos</h1>
@@ -383,10 +384,10 @@
         </div>
     </section>
 
-    <!-- Filtros de Categoría (se llenan dinámicamente con JS) -->
+    <!-- Filtros de Categoría -->
     <section id="filtro-categorias">
         <div class="filtro-container">
-            <!-- Botones de filtros serán generados aquí -->
+            <!-- Botones de filtros son generados aquí -->
         </div>
     </section>
 
@@ -414,7 +415,8 @@
         </div>
     </section>
 
-
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
     <footer id="footer">
@@ -537,18 +539,18 @@
                 card.setAttribute("data-categoria", categoria.toLowerCase());
 
                 card.innerHTML = `
-            <img src="${imagen}" alt="${titulo}">
-            <div class="proyecto-info">
-                <span class="estado ${estadoClass}">${estado}</span>
-                <h2>${titulo}</h2>
-                <p>${descripcion}</p>
-                <p><strong>Fecha:</strong> ${fecha}</p>
-                <div class="acciones">
-                    <a href="donate.html" class="btn-donate">Apoyar Proyecto</a>
-                    ${linkvideo ? `<a href="${linkvideo}" target="_blank" class="btn-more">Ver video</a>` : ""}
-                    ${linkinforme ? `<a href="${linkinforme}" target="_blank" class="btn-more">Ver informe</a>` : ""}
+                <img src="${imagen}" alt="${titulo}">
+                <div class="proyecto-info">
+                    <span class="estado ${estadoClass}">${estado}</span>
+                    <h2>${titulo}</h2>
+                    <p>${descripcion}</p>
+                    <p><strong>Fecha:</strong> ${fecha}</p>
+                    <div class="acciones">
+                        <a href="donate.html" class="btn-donate">Apoyar Proyecto</a>
+                        ${linkvideo ? `<a href="${linkvideo}" target="_blank" class="btn-more">Ver video</a>` : ""}
+                        ${linkinforme ? `<a href="${linkinforme}" target="_blank" class="btn-more">Ver informe</a>` : ""}
+                    </div>
                 </div>
-            </div>
         `;
 
                 proyectos.push(card);

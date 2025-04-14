@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="icon" href="../img/logo.png">
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
-        /* Sección de Voluntarios */
+        /* ------------------ VOLUNTARIOS ------------------ */
         .volunteer-section {
             background: var(--primary-color);
             color: white;
@@ -85,7 +86,7 @@
         }
 
 
-        /* Sección de Testimonios */
+        /* ------------------ TESTIMONIOS ------------------ */
         .testimonios-section {
             background: var(--background-color);
             color: var(--primary-color);
@@ -146,30 +147,8 @@
             color: var(--secondary-color);
         }
 
-        /* Sección de formulario de voluntariado */
-        .volunteer-form-section {
-            background-color: var(--background-color);
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
 
-        .volunteer-form-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: var(--title-color);
-        }
-
-        .volunteer-form-section p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #666;
-        }
-
-
-        /* Requisitos para ser Voluntario */
+       /* ------------------ REQUISITOS ------------------ */
         .requisitos-section {
             background: var(--background-color);
             padding: 40px 20px;
@@ -220,7 +199,7 @@
         }
 
 
-        /* Beneficios del Voluntariado */
+        /* ------------------ BENEFICIOS ------------------ */
         .volunteer-benefits {
             display: flex;
             flex-direction: column;
@@ -271,7 +250,7 @@
             gap: 10px;
         }
 
-        /* Sección de formulario de voluntariado */
+        /* ------------------ FORMULARIO ------------------ */
         .volunteer-form-section {
             background-color: var(--background-color);
             padding: 20px 10px;
@@ -287,11 +266,11 @@
         }
 
         .volunteer-form-section p {
+            margin-bottom: 40px;
             font-size: 1.2em;
             color: #666;
         }
 
-        /* Formulario */
         .volunteer-form {
             background-color: #ffffff;
             border-radius: 15px;
@@ -340,7 +319,7 @@
             background-color: var(--submit-color);
         }
 
-        /* Card de WhatsApp */
+        /* ------------------ CARD WHATSAPP ------------------ */
         .whatsapp-card {
             background: linear-gradient(135deg, var(--submit-light-color) 0%, #128c7e 100%);
             border-radius: 15px;
@@ -424,132 +403,142 @@
         </nav>
     </header>
 
-    <!-- Sección de Voluntarios -->
-    <section id="voluntarios" class="volunteer-section">
-        <div class="container">
-            <div class="volunteer-header">
-                <h1>¡Haz la Diferencia, Conviértete en Voluntario!</h1>
-                <p>Forma parte de un equipo apasionado que trabaja por un mundo mejor. ¡Tu ayuda es invaluable!</p>
-            </div>
 
-            <div class="volunteer-content">
-                <div class="volunteer-image">
-                    <img src="../img/voluntarios-impacto.jpg" alt="Voluntarios en Acción">
+    <Main>
+        <!-- Voluntarios -->
+        <section id="voluntarios" class="volunteer-section">
+            <div class="container">
+                <!-- Header -->
+                <div class="volunteer-header">
+                    <h1>¡Haz la Diferencia, Conviértete en Voluntario!</h1>
+                    <p>Forma parte de un equipo apasionado que trabaja por un mundo mejor. ¡Tu ayuda es invaluable!</p>
                 </div>
-                <div class="volunteer-info">
-                    <h2>¿Por qué unirte?</h2>
-                    <ul>
-                        <li><i class="fas fa-hands-helping"></i> Impacta vidas y crea un cambio real.</li>
-                        <li><i class="fas fa-users"></i> Conoce personas con tus mismos valores.</li>
-                        <li><i class="fas fa-lightbulb"></i> Aprende nuevas habilidades y crece profesionalmente.</li>
-                    </ul>
-                    <a href="#form-voluntario" class="btn-volunteer">Quiero Ser Voluntario</a>
+                <!-- Contenido -->
+                <div class="volunteer-content">
+                    <div class="volunteer-image">
+                        <img src="../img/voluntarios-impacto.jpg" alt="Voluntarios en Acción">
+                    </div>
+                    <div class="volunteer-info">
+                        <h2>¿Por qué unirte?</h2>
+                        <ul>
+                            <li><i class="fas fa-hands-helping"></i> Impacta vidas y crea un cambio real.</li>
+                            <li><i class="fas fa-users"></i> Conoce personas con tus mismos valores.</li>
+                            <li><i class="fas fa-lightbulb"></i> Aprende nuevas habilidades y crece profesionalmente.
+                            </li>
+                        </ul>
+                        <a href="#form-voluntario" class="btn-volunteer">Quiero Ser Voluntario</a>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section id="testimonios-voluntarios" class="testimonios-section">
+            <h2>¡Escucha a Nuestros Voluntarios!</h2>
+            <div class="testimonios-container">
+                <div class="testimonio">
+                    <p>"Ser voluntario ha cambiado mi vida. Me ha dado un propósito y he conocido personas
+                        maravillosas."
+                    </p>
+                    <h4><strong>- Mariana R.</strong></h4>
+                </div>
+                <div class="testimonio">
+                    <p>"Nunca imaginé lo gratificante que sería ayudar a otros. Es una experiencia que recomendaría a
+                        todos."</p>
+                    <h4><strong>- Pedro S.</strong></h4>
+                </div>
+                <div class="testimonio">
+                    <p>"He podido ver como se cambia una vida. ¡Fue increible! Si pueden ser voluntarios, no duden en
+                        acompañarnos."</p>
+                    <h4><strong>- Alejandro P.</strong></h4>
+                </div>
+            </div>
+        </section>
+
+        <div>
+            <hr>
         </div>
-    </section>
 
-    <!-- Sección de Testimonios -->
-    <section id="testimonios-voluntarios" class="testimonios-section">
-        <h2>¡Escucha a Nuestros Voluntarios!</h2>
-        <div class="testimonios-container">
-            <div class="testimonio">
-                <p>"Ser voluntario ha cambiado mi vida. Me ha dado un propósito y he conocido personas maravillosas."
-                </p>
-                <h4><strong>- Mariana R.</strong></h4>
+        <!--  Requisitos -->
+        <section id="requisitos-voluntario" class="requisitos-section">
+            <div class="requisitos-container">
+                <h2>¿Cuáles son los Requisitos?</h2>
+                <ul>
+                    <li>Mayor de 18 años.</li>
+                    <li>Compromiso de 4 horas semanales.</li>
+                    <li>Pasión por ayudar a la comunidad.</li>
+                    <li>Disponibilidad para eventos.</li>
+                    <li>Residir en República Dominicana.</li>
+                </ul>
             </div>
-            <div class="testimonio">
-                <p>"Nunca imaginé lo gratificante que sería ayudar a otros. Es una experiencia que recomendaría a
-                    todos."</p>
-                <h4><strong>- Pedro S.</strong></h4>
-            </div>
-            <div class="testimonio">
-                <p>"He podido ver como se cambia una vida. ¡Fue increible! Si pueden ser voluntarios, no duden en acompañarnos."</p>
-                <h4><strong>- Alejandro P.</strong></h4>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <div>
-        <hr>
-    </div>
-
-    <!-- Sección de Requisitos -->
-    <section id="requisitos-voluntario" class="requisitos-section">
-        <div class="requisitos-container">
-            <h2>¿Cuáles son los Requisitos?</h2>
-            <ul>
-                <li>Mayor de 18 años.</li>
-                <li>Compromiso de 4 horas semanales.</li>
-                <li>Pasión por ayudar a la comunidad.</li>
-                <li>Disponibilidad para eventos.</li>
-                <li>Residir en República Dominicana.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sección de Beneficios Mejorada -->
-    <section id="beneficios-voluntariado" class="volunteer-benefits">
-        <div class="benefit">
-            <h2>Beneficios del Voluntariado</h2>
-            <div class="benefit-item">
-                <img src="../img/ayuda-icon.png" alt="Ayuda">
-                <h3>Transforma Vidas</h3>
-                <p>Tu esfuerzo puede marcar la diferencia en la vida de muchas personas.</p>
+        <!-- Beneficios -->
+        <section id="beneficios-voluntariado" class="volunteer-benefits">
+            <div class="benefit">
+                <h2>Beneficios del Voluntariado</h2>
+                <div class="benefit-item">
+                    <img src="../img/ayuda-icon.png" alt="Ayuda">
+                    <h3>Transforma Vidas</h3>
+                    <p>Tu esfuerzo puede marcar la diferencia en la vida de muchas personas.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="../img/red-icon.png" alt="Conexión">
+                    <h3>Conéctate</h3>
+                    <p>Haz amigos y crea lazos con personas que comparten tus valores.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="../img/interaccion-icon.png" alt="Habilidades">
+                    <h3>Desarrollo Personal</h3>
+                    <p>Aprende nuevas habilidades y enriquece tu crecimiento profesional.</p>
+                </div>
             </div>
-            <div class="benefit-item">
-                <img src="../img/red-icon.png" alt="Conexión">
-                <h3>Conéctate</h3>
-                <p>Haz amigos y crea lazos con personas que comparten tus valores.</p>
-            </div>
-            <div class="benefit-item">
-                <img src="../img/interaccion-icon.png" alt="Habilidades">
-                <h3>Desarrollo Personal</h3>
-                <p>Aprende nuevas habilidades y enriquece tu crecimiento profesional.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="form-voluntario" class="volunteer-form-section">
-        <h2>Únete como Voluntario</h2>
-        <p>Completa el siguiente formulario para ser parte de nuestra misión.</p>
+        </section>
 
         <!-- Formulario -->
-        <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="volunteer-form">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="correo">Correo Electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
-            </div>
-            <div class="form-group">
-                <label for="habilidades">Habilidades o Intereses:</label>
-                <textarea id="habilidades" name="habilidades" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Enviar</button>
-            <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/volunteer.html">
-            <input type="hidden" name="_captcha" value="false">
-        </form>
+        <section id="form-voluntario" class="volunteer-form-section">
+            <h2>Únete como Voluntario</h2>
+            <p>Completa el siguiente formulario para ser parte de nuestra misión.</p>
 
-        <!-- Card de WhatsApp -->
-        <div class="whatsapp-card">
-            <div class="whatsapp-icon">
-                <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+            <form action="https://formsubmit.co/fundacionsofialorenzo@gmail.com" method="POST" class="volunteer-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="habilidades">Habilidades o Intereses:</label>
+                    <textarea id="habilidades" name="habilidades" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar</button>
+                <input type="hidden" name="_next" value="https://fundacionsofialorenzo.com/sections/volunteer.html">
+                <input type="hidden" name="_captcha" value="false">
+            </form>
+
+            <!-- Card de WhatsApp -->
+            <div class="whatsapp-card">
+                <div class="whatsapp-icon">
+                    <img src="../img/whatsapp-icon.png" alt="WhatsApp Logo">
+                </div>
+                <div class="whatsapp-info">
+                    <h3>Contáctanos en WhatsApp</h3>
+                    <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+                    <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
+                        class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
+                </div>
             </div>
-            <div class="whatsapp-info">
-                <h3>Contáctanos en WhatsApp</h3>
-                <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
-                <a href="https://wa.me/+18492632939?text=Hola!%20Me%20gustaría%20ser%20voluntario%20de%20tu%20fundación%20Sofía%20Lorenzo."
-                    class="btn-whatsapp" target="_blank">Enviar Mensaje</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </Main>
+
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
     <footer id="footer">

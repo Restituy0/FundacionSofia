@@ -10,6 +10,7 @@
     <script async src="https://www.instagram.com/embed.js"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
         :root {
             --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -33,7 +34,7 @@
             padding: 1.5rem 0;
         }
 
-        /* Sección: Actividades Dinamicas */
+        /* ------------------ INTRO ACTIVIDADES ------------------ */
 
         .actividades-dinamicas {
             background-color: var(--background-color);
@@ -71,7 +72,7 @@
             box-shadow: 0 0 0 3px rgba(255, 2, 2, 0.185);
         }
 
-        /* Diseño: Cards de Videos */
+        /* ------------------ GALERÍA DE ACTIVIDADES ------------------ */
 
         /* Contenedor general */
         .galeria-grid {
@@ -365,7 +366,7 @@
         }
 
 
-        /* Sección: Recorrido de Logros */
+        /* ------------------ RECORRIDO DE LOGROS ------------------ */
 
         .timeline-actividades {
             background-color: var(--background-color);
@@ -392,7 +393,7 @@
             color: var(--highlight-color);
         }
 
-        /* Sección: Llamada a la accion */
+        /* ------------------ LLAMADA A LA ACCION ------------------ */
 
         .formas-participar {
             background-image: linear-gradient(to right, #0383f3, #004B8D);
@@ -413,55 +414,7 @@
             color: var(--highlight-color);
         }
 
-        .opciones-participar {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .opcion {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            max-width: 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .opcion:hover {
-            transform: scale(1.05, 1.05);
-        }
-
-        #opcion1 {
-            box-shadow: 0 4px 6px rgb(0, 153, 255);
-        }
-
-        #opcion2 {
-            box-shadow: 0 4px 6px rgb(255, 153, 0);
-        }
-
-        .btn-primario {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
-        .btn-secundario {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--secondary-color);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
-        /* Sección: Cierre */
+        /* ------------------ CIERRE ------------------ */
 
         .cierre-cta {
             background-color: var(--background-color);
@@ -485,6 +438,8 @@
         .btn-principal:hover {
             transform: scale(1.05, 1.05);
         }
+
+        /* ------------------ RESPONSIVE ------------------ */
 
         @media screen and (max-width: 768px) {
             .opciones-participar {
@@ -537,112 +492,74 @@
         </nav>
     </header>
 
-
-    <section class="actividades-dinamicas">
-        <h1>Conoce Nuestras Acciones Mas Destacadas</h1>
-        <h2>Estas son las iniciativas que están generando un cambio real gracias a personas como tú.</h2>
-        </div>
-        <div class="container">
-            <div class="filtro-categorias">
-                <label for="category-filter">Filtrar por categoría:</label>
-                <select id="category-filter">
-                    <option value="all">Todas</option>
-                </select>
+    <main>
+        <!-- Introduccion -->
+        <section class="actividades-dinamicas">
+            <h1>Conoce Nuestras Acciones Mas Destacadas</h1>
+            <h2>Estas son las iniciativas que están generando un cambio real gracias a personas como tú.</h2>
             </div>
-            <div id="video-gallery" class="galeria-grid"></div>
-            <div class="pagination-controls">
-                <button id="prevPage" disabled>← Anterior</button>
-                <button id="nextPage">Siguiente →</button>
+            <!-- Sección de Logros o Proyectos Destacados -->
+            <div class="container">
+                <!-- Filtros de Categoría -->
+                <div class="filtro-categorias">
+                    <label for="category-filter">Filtrar por categoría:</label>
+                    <select id="category-filter">
+                        <option value="all">Todas</option>
+                    </select>
+                </div>
+                <!-- Galería de Proyectos -->
+                <div id="video-gallery" class="galeria-grid"></div>
+                <!-- Botones de Paginacion-->
+                <div class="pagination-controls">
+                    <button id="prevPage" disabled>← Anterior</button>
+                    <button id="nextPage">Siguiente →</button>
+                </div>
+                <h2 id="no-activities-message" style="display: none;">NO HAY ACTIVIDADES DISPONIBLES</h2>
             </div>
-            <h2 id="no-activities-message" style="display: none;">NO HAY ACTIVIDADES DISPONIBLES</h2>
+        </section>
+
+        <div>
+            <hr>
         </div>
-    </section>
-
-    <div>
-        <hr>
-    </div>
-
-    <section class="timeline-actividades">
-        <div class="container">
-            <h2>Recorrido de Nuestros Logros</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="fecha">Ene 2024</span>
-                    <h3>Jornada de Salud en San Cristóbal</h3>
-                    <p>Más de 300 personas recibieron atención médica gratuita.</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="fecha">Nov 2023</span>
-                    <h3>Feria Educativa Comunitaria</h3>
-                    <p>Se entregaron útiles escolares a más de 200 niños y niñas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="formas-participar">
-        <div class="container">
-            <h2>¿QUIERES VER MAS?</h2>
-            <p><a href="#footer">SIGUENOS EN NUESTRAS REDES SOCIALES</a></p>
-        </div>
-    </section>
-
-    <!-- Seccion Participar - Voluntario y Donar para futuros cambios -->
-    <!-- <section class="formas-participar">
-        <div class="container">
-            <h2>¿Te Gustaría Participar?</h2>
-            <div class="opciones-participar">
-                <div class="opcion" id="opcion1">
-                    <h3>Como Voluntario</h3>
-                    <p>Aporta tu tiempo y energía en nuestras próximas actividades.</p>
-                    <a href="volunteer.html" class="btn-primario">Únete</a>
-                </div>
-                <div class="opcion" id="opcion2">
-                    <h3>Con una Donación</h3>
-                    <p>Cada aporte cuenta para seguir cambiando vidas.</p>
-                    <a href="donate.html" class="btn-secundario">Donar Ahora</a>
+        <!-- Seccion de Logros -->
+        <section class="timeline-actividades">
+            <div class="container">
+                <h2>Recorrido de Nuestros Logros</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="fecha">Ene 2024</span>
+                        <h3>Jornada de Salud en San Cristóbal</h3>
+                        <p>Más de 300 personas recibieron atención médica gratuita.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="fecha">Nov 2023</span>
+                        <h3>Feria Educativa Comunitaria</h3>
+                        <p>Se entregaron útiles escolares a más de 200 niños y niñas.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section> -->
+        </section>
 
-    <section class="cierre-cta">
-        <div class="container">
-            <h2>Juntos podemos lograr más</h2>
-            <p>Explora nuestros proyectos y sé parte del cambio.</p>
-            <a href="proyectos.html" class="btn-principal">Proyectos</a>
-        </div>
-    </section>
+        <!-- Invitacion Final -->
+        <section class="formas-participar">
+            <div class="container">
+                <h2>¿QUIERES VER MAS?</h2>
+                <p><a href="#footer">SIGUENOS EN NUESTRAS REDES SOCIALES</a></p>
+            </div>
+        </section>
 
-    <!-- Filtros no dinamicos -->
-    <!-- <main class="container">
-        <h1>Actividades de nuestra fundación</h1>
-        <p>Aquí puedes ver algunos de los proyectos y actividades en los que hemos trabajado.</p>
-        <div class="filter-container">
-            <label for="category-filter">Filtrar por proyecto:</label>
-            <select id="category-filter" onchange="filterActivities()">
-                <option value="all">Todos</option>
-                <option value="educacion">Educación</option>
-                <option value="salud">Salud</option>
-                <option value="medioambiente">Medio Ambiente</option>
-            </select>
-        </div>
-        
-        <div class="gallery" id="activity-gallery">
-            Ejemplo de actividad
-            <div class="video" data-category="educacion">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DFxcbg4upbM/" data-instgrm-version="14"></blockquote>
-                <p>Proyecto de educación en comunidades rurales.</p>
-                <a href="donate.html" class="btn-donate">Dona a este proyecto</a>
+        <section class="cierre-cta">
+            <div class="container">
+                <h2>Juntos podemos lograr más</h2>
+                <p>Explora nuestros proyectos y sé parte del cambio.</p>
+                <a href="proyectos.html" class="btn-principal">Proyectos</a>
             </div>
-            
-            <div class="video" data-category="salud">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-                <p>Brindando asistencia médica a quienes más lo necesitan.</p>
-                <a href="donate.html" class="btn-donate">Dona a este proyecto</a>
-            </div>
-        </div>
-    </main> -->
+        </section>
+
+    </main>
+
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
 
     <!-- Footer -->
     <footer id="footer">

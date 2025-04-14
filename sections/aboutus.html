@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,23 @@
     <link rel="icon" href="../img/logo.png">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="../js/modals.js"></script>
+    <script src="../js/upbtn.js"></script>
     <style>
+        /* ------------------ INTRO ------------------ */
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 40px 20px;
             text-align: center;
         }
+
         .section-title {
             font-size: 2.5em;
             font-weight: bold;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
+
         .section-title::after {
             content: '';
             width: 100px;
@@ -29,12 +34,15 @@
             display: block;
             margin: 10px auto;
         }
+
         .content-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
+
+        /* ------------------ CARDS ------------------ */
         .card {
             background: white;
             padding: 30px;
@@ -45,22 +53,26 @@
             max-width: 500px;
             text-align: center;
         }
+
         .card i {
             font-size: 3em;
             color: var(--highlight-color);
             margin-bottom: 10px;
         }
+
         .card h3 {
             color: var(--primary-color);
             font-size: 1.8em;
             margin-bottom: 10px;
         }
+
         .card p {
             font-size: 1.1em;
             line-height: 1.6;
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -90,31 +102,42 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1 class="section-title">Quiénes Somos</h1>
-        <div class="content-wrapper">
-            <div class="card">
-                <i class="fas fa-bullseye"></i>
-                <h3>Misión</h3>
-                <p>Lograr que las personas obtengan una mejor calidad humana de vida.</p>
+
+    <main>
+        <!-- Introduccion -->
+        <section class="container">
+            <h1 class="section-title">Quiénes Somos</h1>
+            <!-- Mision, Vision y Valores -->
+            <div class="content-wrapper">
+                <div class="card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Misión</h3>
+                    <p>Lograr que las personas obtengan una mejor calidad humana de vida.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visión</h3>
+                    <p>Nuestra visión es la de un mundo más humano donde las personas puedan avanzar y desarrollarse
+                        para tener una vida plena.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Valores</h3>
+                    <p>Solidaridad, empatía y compromiso con el bienestar de nuestra comunidad.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Objetivos</h3>
+                    <p>Mejorar la calidad de vida de las personas con dificultades económicas, físicas y de aprendizaje
+                        a través de programas de ayuda, capacitación y orientación.</p>
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-eye"></i>
-                <h3>Visión</h3>
-                <p>Nuestra visión es la de un mundo más humano donde las personas puedan avanzar y desarrollarse para tener una vida plena.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h3>Valores</h3>
-                <p>Solidaridad, empatía y compromiso con el bienestar de nuestra comunidad.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-tasks"></i>
-                <h3>Objetivos</h3>
-                <p>Mejorar la calidad de vida de las personas con dificultades económicas, físicas y de aprendizaje a través de programas de ayuda, capacitación y orientación.</p>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <!-- Boton Volver -->
+    <button id="btnVolverArriba" onclick="scrollToTop()">↑</button>
+
     <!-- Footer -->
     <footer id="footer">
         <div class="footer__container">
@@ -171,4 +194,5 @@
         </div>
     </div>
 </body>
+
 </html>
